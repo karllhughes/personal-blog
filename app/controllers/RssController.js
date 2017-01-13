@@ -1,5 +1,6 @@
 var RSS = require('rss');
 var BaseController = require('./BaseController');
+var filters = require('../filters');
 
 var RssController = Object.create(BaseController);
 
@@ -22,7 +23,7 @@ RssController.get = function(req, res, next) {
     docs.map(function (item) {
       rss.item({
         title: item.title,
-        description: BaseController.parseMarkdown(item.content),
+        description: filters.parseMarkdown(item.content),
         url: 'http://blog.khughes.me/posts/' + item._id
       });
     });
