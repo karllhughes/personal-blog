@@ -6,7 +6,7 @@ var PostsController = Object.create(BaseController);
 PostsController.get = function(req, res, next) {
 
   this.db.find({}, function (err, docs) {
-    return res.render('index', { posts: docs, title: "Blog Posts" });
+    res.render('posts/index', { posts: docs, title: "All Posts" });
   });
 };
 
