@@ -7,6 +7,7 @@ This is my new personal blog. Wordpress has become too cumbersome for my simple 
 - [NeDB database](https://github.com/louischatriot/nedb)
 - [Handlebars templating engine](http://handlebarsjs.com/)
 - [Marked markdown parser](https://github.com/chjj/marked)
+- [Node RSS feed generator](https://github.com/dylang/node-rss)
 
 ## Setup & Development
 - Clone this repo.
