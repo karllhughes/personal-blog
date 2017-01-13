@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var exphbs  = require('express-handlebars');
 var env = require('dotenv').config();
 
-var index = require('./routes/index');
+var web = require('./routes/web');
 
 var app = express();
 
@@ -29,7 +29,7 @@ app.use(require('node-sass-middleware')({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
+app.use('/', web);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
