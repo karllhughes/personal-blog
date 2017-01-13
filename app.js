@@ -2,9 +2,8 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var exphbs  = require('express-handlebars');
-var env = require('dotenv').config();
-
-var web = require('./routes/web');
+var web = require('./app/routes/web');
+require('dotenv').config();
 
 var app = express();
 
@@ -18,11 +17,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', web);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+// 404 response
+app.use(function (req, res, next) {
+  res.status(404).send("404 Not Found");
 });
 
 // error handler

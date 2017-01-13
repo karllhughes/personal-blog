@@ -6,9 +6,15 @@
   "updatedAt": "",
   "imageUrl": "",
   "postUrl": "",
-  "type": "article, link, project, page",
+  "type": "blog, link, page, project",
   "tags": [
-    "tag 1",
-    "tag 2"
+    {
+        "_id":"tag-1",
+        "name":"tag 1"
+    },
+    {
+        "_id":"tag-2",
+        "name":"tag 2"
+    }
   ]
 }

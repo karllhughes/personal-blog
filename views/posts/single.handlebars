@@ -1,2 +1,10 @@
 <h1>{{post.title}}</h1>
-{{{ post.content }}}
+<div>{{{ post.content }}}</div>
+<div>Type: <a href="/types/{{post.type}}">{{post.type}}</a></div>
+<div>Tags:
+  <ul class="tags">
+    {{#each post.tags}}
+      <li><a href="/tags/{{this._id}}">{{this.name}}</a></li>
+    {{/each}}
+  </ul>
+</div>
