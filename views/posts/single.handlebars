@@ -1,13 +1,16 @@
 <div class="post" id="post-{{post._id}}">
   <h1>{{post.title}}</h1>
-  <p>Type: <a href="/types/{{post.type}}">{{post.type}}</a></p>
+
+  <p class="type">
+    <a href="/types/{{post.type}}" title="More {{post.type}} posts">
+      <i class="icon-notebook icons"></i> {{post.type}}
+    </a>
+  </p>
+
+  {{> tags tags=post.tags }}
+
   {{> share post=post }}
+
   <div>{{{ post.content }}}</div>
-  <div>Tags:
-    <ul class="tags">
-      {{#each post.tags}}
-        <li><a href="/tags/{{this._id}}">{{this.name}}</a></li>
-      {{/each}}
-    </ul>
-  </div>
+
 </div>
