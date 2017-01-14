@@ -9,8 +9,8 @@ class RssController extends BaseController {
 
     this.posts.find({})
       .sort({ createdAt: -1 })
-      .skip(0)
-      .limit(20)
+      .skip(self.getSkip(req.query.page, req.query.per_page))
+      .limit(self.getLimit(req.query.per_page))
       .exec(function (err, docs) {
 
       let rss = self.addItemsToFeed(self.createFeed(), docs);

@@ -1,5 +1,6 @@
 @import "~normalize.css";
 @import "~milligram";
+@import "pagination";
 @import "post";
 @import "share";
 
@@ -20,4 +21,10 @@ a {
 }
 p a {
   color: #152B55;
+}
+.page-indicator {
+  padding: 2.5rem;
+}
+.pagination-container {
+  padding: 2.5rem;
 }

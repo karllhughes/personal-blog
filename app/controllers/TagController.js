@@ -5,8 +5,8 @@ class TagController extends BaseController {
   get(req, res, next) {
     this.posts.find({"tags._id": req.params.tag})
       .sort({ createdAt: -1 })
-      .skip(0)
-      .limit(20)
+      .skip(self.getSkip(req.query.page, req.query.per_page))
+      .limit(self.getLimit(req.query.per_page))
       .exec(function (err, docs) {
       let data = {
         posts: docs,

@@ -7,8 +7,8 @@ class TypeController extends BaseController {
     if (this.filters.isValidType(req.params.type)) {
       this.posts.find({"type": req.params.type})
         .sort({ createdAt: -1 })
-        .skip(0)
-        .limit(20)
+        .skip(self.getSkip(req.query.page, req.query.per_page))
+        .limit(self.getLimit(req.query.per_page))
         .exec(function (err, docs) {
         let data = {
           posts: docs,
