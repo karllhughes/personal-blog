@@ -1,8 +1,12 @@
-var Db = require('nedb');
+'use strict';
+let Db = require('nedb');
+let Filters = require('../Filters');
 
-var BaseController = {
-  // Instantiate the database connection
-  db: new Db({ filename: "./database/posts.nosql", autoload: true, inMemoryOnly: false })
-};
+class BaseController {
+  constructor() {
+    this.db = new Db({ filename: "./database/posts.nosql", autoload: true, inMemoryOnly: false });
+    this.filters = new Filters;
+  }
+}
 
 module.exports = BaseController;

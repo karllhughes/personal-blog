@@ -1,11 +1,11 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var exphbs  = require('express-handlebars');
-var web = require('./app/routes/web');
+let express = require('express');
+let path = require('path');
+let favicon = require('serve-favicon');
+let exphbs  = require('express-handlebars');
+let web = require('./app/routes/web');
 require('dotenv').config();
 
-var app = express();
+let app = express();
 
 // view engine setup
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));

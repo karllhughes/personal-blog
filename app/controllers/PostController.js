@@ -1,18 +1,18 @@
-var BaseController = require('./BaseController');
-var filters = require('../filters');
+'use strict';
+let BaseController = require('./BaseController');
 
-var PostController = Object.create(BaseController);
+class PostController extends BaseController {
+  get(req, res, next) {
+    let filters = this.filters;
+    this.db.findOne({"_id": req.params.id}, function (err, doc) {
 
-// Get single post
-PostController.get = function(req, res, next) {
+      // Parse markdown
+      doc.content = filters.parseMarkdown(doc.content);
 
-  this.db.findOne({"_id": req.params.id}, function (err, doc) {
-    // Parse markdown
-    doc.content = filters.parseMarkdown(doc.content);
-
-    // Render the page
-    res.render('posts/single', { post: doc, title: doc.title });
-  });
-};
+      // Render the page
+      res.render('posts/single', {post: doc, title: doc.title});
+    });
+  }
+}
 
 module.exports = PostController;

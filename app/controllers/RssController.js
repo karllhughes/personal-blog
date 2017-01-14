@@ -1,14 +1,23 @@
-var RSS = require('rss');
-var BaseController = require('./BaseController');
-var filters = require('../filters');
+'use strict';
+let BaseController = require('./BaseController');
+let RSS = require('rss');
 
-var RssController = Object.create(BaseController);
+class RssController extends BaseController {
 
-// Get all posts
-RssController.get = function(req, res, next) {
+  get(req, res, next) {
+    let self = this;
 
-  this.db.find({}, function (err, docs) {
-    var feedOptions = {
+    this.db.find({}, function (err, docs) {
+
+      let rss = self.addItemsToFeed(self.createFeed(), docs);
+
+      res.set('Content-Type', 'application/rss+xml');
+      res.send(rss.xml());
+    });
+  }
+
+  createFeed() {
+    let feedOptions = {
       title: 'Karls Blog',
       description: 'My personal blog.',
       feed_url: 'http://blog.khughes.me/rss',
@@ -17,19 +26,20 @@ RssController.get = function(req, res, next) {
       language: 'en',
       pubDate: new Date().toString()
     };
+    return new RSS(feedOptions);
+  }
 
-    var rss = new RSS(feedOptions);
-
-    docs.map(function (item) {
+  addItemsToFeed(rss, items) {
+    let self = this;
+    items.map(function (item) {
       rss.item({
         title: item.title,
-        description: filters.parseMarkdown(item.content),
+        description: self.filters.parseMarkdown(item.content),
         url: 'http://blog.khughes.me/posts/' + item._id
       });
     });
-    res.set('Content-Type', 'application/rss+xml');
-    res.send(rss.xml());
-  });
-};
+    return rss;
+  }
+}
 
 module.exports = RssController;

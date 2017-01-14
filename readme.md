@@ -8,6 +8,7 @@ This is my new personal blog. Wordpress has become too cumbersome for my simple 
 - [Handlebars templating engine](http://handlebarsjs.com/)
 - [Marked markdown parser](https://github.com/chjj/marked)
 - [Node RSS feed generator](https://github.com/dylang/node-rss)
+- [Milligram styling framework](https://milligram.github.io/)
 
 ## Setup & Development
 - Clone this repo.
@@ -16,5 +17,4 @@ This is my new personal blog. Wordpress has become too cumbersome for my simple 
 - Then `$ npm start`.
 
 The blog will be running on your localhost at the port specified in your `.env` file.
-
 
