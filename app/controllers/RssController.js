@@ -7,7 +7,11 @@ class RssController extends BaseController {
   get(req, res, next) {
     let self = this;
 
-    this.db.find({}, function (err, docs) {
+    this.posts.find({})
+      .sort({ createdAt: -1 })
+      .skip(0)
+      .limit(20)
+      .exec(function (err, docs) {
 
       let rss = self.addItemsToFeed(self.createFeed(), docs);
 

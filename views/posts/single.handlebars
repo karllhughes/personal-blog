@@ -1,6 +1,7 @@
 <div class="post">
   <h1>{{post.title}}</h1>
   <p>Type: <a href="/types/{{post.type}}">{{post.type}}</a></p>
+  {{> share }}
   <div>{{{ post.content }}}</div>
   <div>Tags:
     <ul class="tags">

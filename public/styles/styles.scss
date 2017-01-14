@@ -1,27 +1,23 @@
-@import '~normalize.css';
-@import '~milligram';
+@import "~normalize.css";
+@import "~milligram";
+@import "post";
+@import "share";
 
 body {
   background: #F7F8FA;
   color: #152B55;
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
 .header {
   background: #ffffff;
-  padding: 3.5rem;
+  padding: 2.5rem;
 }
 a {
   color: #152B55;
 }
 p a {
   color: #152B55;
-}
-.post {
-  background: #ffffff;
-  margin: 1rem;
-  padding: 2.5rem;
-
-  h1 {
-    font-size: 3.6rem;
-    line-height: 1.25;
-  }
 }

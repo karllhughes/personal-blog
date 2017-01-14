@@ -5,7 +5,11 @@ class TypeController extends BaseController {
   get(req, res, next) {
     let self = this;
     if (this.filters.isValidType(req.params.type)) {
-      this.db.find({"type": req.params.type}, function (err, docs) {
+      this.posts.find({"type": req.params.type})
+        .sort({ createdAt: -1 })
+        .skip(0)
+        .limit(20)
+        .exec(function (err, docs) {
         let data = {
           posts: docs,
           title: self.pageTitle(req.params.type)

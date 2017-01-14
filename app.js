@@ -3,6 +3,7 @@ let path = require('path');
 let favicon = require('serve-favicon');
 let exphbs  = require('express-handlebars');
 let web = require('./app/routes/web');
+let database = require('./app/database');
 require('dotenv').config();
 
 let app = express();
@@ -15,6 +16,20 @@ app.set('view engine', 'handlebars');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Add global settings to the response
+app.use(function (req, res, next) {
+  // Get settings from the DB
+  res.locals.settings = {};
+  database.settings.find({}, function (err, settingObjects) {
+    // Process setting objects into one object
+    settingObjects.map(function (settingObject) {
+      res.locals.settings[settingObject._id] = settingObject.value;
+    });
+    next();
+  });
+});
+
+// Load the routes
 app.use('/', web);
 
 // 404 response

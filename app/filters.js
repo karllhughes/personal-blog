@@ -1,7 +1,7 @@
 'use strict';
 let marked = require('marked');
 
-class Filters {
+let filters = {
 
   // List of allowed types
   allowedTypes() {
@@ -11,19 +11,19 @@ class Filters {
       'page',
       'project'
     ];
-  }
+  },
 
   // Filters only allowed types
   isValidType(inputType) {
     return this.allowedTypes().filter(function (type) {
       return type === inputType;
     })[0];
-  }
+  },
 
   // Parse markdown content
   parseMarkdown(markdown) {
     return marked(markdown);
-  }
+  },
 
   // Transforms words to uppercase
   ucwords(str) {
@@ -32,6 +32,6 @@ class Filters {
         return $1.toUpperCase()
       })
   }
-}
+};
 
-module.exports = Filters;
+module.exports = filters;
