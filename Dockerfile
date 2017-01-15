@@ -14,6 +14,7 @@ RUN npm install --only=prod
 
 ADD ./app /src/app
 ADD ./bin /src/bin
+ADD ./database /src/database
 ADD ./public /src/public
 ADD ./views /src/views
 ADD ./app.js /src/app.js
