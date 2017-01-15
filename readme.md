@@ -23,14 +23,13 @@ As an alternative to installing the app locally, docker is set up to work for de
 - The site is served at `localhost:43000` and should be watching for changes to both the Node and frontend files.
 
 ### Production
-The docker setup for production is slightly different as it assumes assets are already compiled.
+The docker setup for production is slightly different as it doesn't need to mount local files as volumes and watch them. Instead, it just runs the build process and starts nodemon.
 
 #### Testing the Dockerfile
 To make sure the Dockerfile works, you can use docker-compose:
 
-- To build the dockerfile run `docker-compose -f docker-compose.prod.yml build`
-- Then run it `docker-compose -f docker-compose.prod.yml up`
-- The site is served at `localhost:43000`
+- Run `docker-compose -f docker-compose.prod.yml build && docker-compose -f docker-compose.prod.yml up`.
+- The site is served at `localhost:43000`, but will not update for changes.
 
 #### Pushing Prod Dockerfile
 When things work, you can build the prod dockerfile and push it out to docker cloud:
