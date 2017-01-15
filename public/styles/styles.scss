@@ -12,16 +12,22 @@ img {
   max-width: 100%;
   height: auto;
 }
-.header {
-  background: #ffffff;
-  padding: 2.5rem;
-}
 a {
   color: #152B55;
 }
 p a {
   color: #152B55;
 }
+
+.header {
+  background: #ffffff;
+  padding: 2.5rem;
+}
+.main {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
 .page-indicator {
   padding: 2.5rem;
 }

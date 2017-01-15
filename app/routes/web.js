@@ -1,6 +1,7 @@
 'use strict';
 let router = require('express').Router();
 let PostController = require('../controllers/PostController');
+let PostEditController = require('../controllers/PostEditController');
 let PostsController = require('../controllers/PostsController');
 let RssController = require('../controllers/RssController');
 let TagController = require('../controllers/TagController');
@@ -13,6 +14,10 @@ router.get('/', function(req, res, next) {
 /* GET single post page. */
 router.get('/posts/:id', function(req, res, next) {
   (new PostController).get(req, res, next);
+});
+/* GET edit single post page. */
+router.get('/posts/:id/edit', function(req, res, next) {
+  (new PostEditController).get(req, res, next);
 });
 /* GET posts by type. */
 router.get('/types/:type', function(req, res, next) {
