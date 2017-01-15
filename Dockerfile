@@ -6,7 +6,7 @@ RUN mkdir /src/database
 
 WORKDIR /src
 
-ADD ./.env /src/.env
+ADD ./.env.example /src/.env
 ADD ./nodemon.json /src/nodemon.json
 ADD ./package.json /src/package.json
 
