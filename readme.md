@@ -1,13 +1,19 @@
 # Personal Blog (WIP)
 This is my new personal blog. Wordpress has become too cumbersome for my simple needs, so I made this simple NodeJS application to serve as my blog.
 
-## Setup & Development
+## Setup
+
+### Local Development
 - Clone this repo.
 - Copy (and optionally modify) the `.env.example` file to `.env`.
 - At the command line, run `$ npm install`.
 - Then `$ npm start`.
 
 The blog will be running on your localhost at the port specified in your `.env` file.
+
+## Docker Deployments
+- `docker-compose -f docker-compose.prod.yml`
+- `localhost:43000`
 
 ## Application Overview
 
@@ -23,6 +29,7 @@ The blog will be running on your localhost at the port specified in your `.env` 
 - [Marked markdown parser](https://github.com/chjj/marked)
 - [Node RSS feed generator](https://github.com/dylang/node-rss)
 - [Milligram styling framework](https://milligram.github.io/)
+- [Docker and Docker-Compose](https://docs.docker.com/compose/)
 
 ### Structure
 - `app/controllers/*` Controller classes that process requests and render views.

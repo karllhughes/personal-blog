@@ -1,13 +1,13 @@
 {
-  "name": "blog",
-  "version": "0.0.0",
+  "name": "personal-blog",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "webpack": "./node_modules/.bin/webpack",
     "webpack:watch": "./node_modules/.bin/webpack --watch",
-    "start": "npm run serve:watch",
-    "serve": "node bin/www",
-    "serve:watch": "./node_modules/.bin/nodemon bin/www"
+    "start": "npm run serve",
+    "serve": "./node_modules/.bin/nodemon bin/www",
+    "docker-serve": "./node_modules/.bin/nodemon -L bin/www"
   },
   "engines": {
     "node": "6.7.0"

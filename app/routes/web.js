@@ -15,10 +15,11 @@ router.get('/', function(req, res, next) {
 router.get('/posts/:id', function(req, res, next) {
   (new PostController).get(req, res, next);
 });
-/* GET edit single post page. */
+/* GET edit single post page. - WIP
 router.get('/posts/:id/edit', function(req, res, next) {
   (new PostEditController).get(req, res, next);
 });
+ */
 /* GET posts by type. */
 router.get('/types/:type', function(req, res, next) {
   (new TypeController).get(req, res, next);
