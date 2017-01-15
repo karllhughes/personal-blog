@@ -4,10 +4,17 @@
     <div class="post">
       <h2>
         <a href="/posts/{{this._id}}">
-          <i class="icon-notebook icons"></i>
           {{this.title}}
         </a>
       </h2>
+
+      {{> type type=this.type }}
+
+      {{> tags tags=this.tags }}
+
+      {{#if this.summary}}
+        <div>{{{ this.summary }}}</div>
+      {{/if }}
     </div>
   {{/each}}
 </div>

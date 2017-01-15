@@ -1,11 +1,7 @@
 <div class="post" id="post-{{post._id}}">
   <h1>{{post.title}}</h1>
 
-  <p class="type">
-    <a href="/types/{{post.type}}" title="More {{post.type}} posts">
-      <i class="icon-notebook icons"></i> {{post.type}}
-    </a>
-  </p>
+  {{> type type=post.type }}
 
   {{> tags tags=post.tags }}
 
@@ -13,5 +9,5 @@
 
   <div>{{{ post.content }}}</div>
 
-  <p><a href="/posts/{{post._id}}/edit"><i class="icon-note icons"></i> Edit</a></p>
+  <div><a href="/posts/{{post._id}}/edit"><i class="icon-note icons"></i> Edit</a></div>
 </div>

@@ -1,0 +1,11 @@
+form {
+  label.required:after {
+    color: red;
+    content: " *";
+  }
+  .extra {
+    border-top: 1px solid #eee;
+    margin-top: 1rem;
+    padding-top: 1.5rem;
+  }
+}
