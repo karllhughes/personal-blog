@@ -1,6 +1,11 @@
-backend:
+personal-blog-dev:
   build: .
   volumes:
+    - "./app:/src/app"
+    - "./assets:/src/assets"
     - "./database:/src/database"
+    - "./views:/src/views"
+    - "./app.js:/src/app.js"
+  entrypoint: npm run serve:dev
   ports:
     - "43000:3001"
