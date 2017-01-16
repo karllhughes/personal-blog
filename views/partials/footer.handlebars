@@ -1,0 +1,16 @@
+
+<div class="container footer">
+  <div class="row">
+    {{#if settings.menu}}
+    <div class="column">
+      {{#each settings.menu}}
+        <a href="{{this.url}}">{{this.name}}</a>{{#unless @last}} |{{/unless}}
+      {{/each}}
+    </div>
+    {{/if}}
+    <div class="column">
+      &copy;{{ settings.year }} - Karl Hughes
+    </div>
+  </div>
+</div>
+

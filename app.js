@@ -4,6 +4,7 @@ let favicon = require('serve-favicon');
 let exphbs  = require('express-handlebars');
 let web = require('./app/routes/web');
 let database = require('./app/database');
+let moment = require('moment');
 require('dotenv').config();
 
 let app = express();
@@ -19,7 +20,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Add global settings to the response
 app.use(function (req, res, next) {
   // Get settings from the DB
-  res.locals.settings = {};
+  res.locals.settings = {
+    year: moment().format('YYYY')
+  };
   database.settings.find({}, function (err, settingObjects) {
     // Process setting objects into one object
     settingObjects.map(function (settingObject) {

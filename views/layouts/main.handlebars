@@ -21,6 +21,7 @@
 <body>
 
 <div class="container header">
+  {{> social-links }}
   <h1><a href="/">{{ settings.siteName }}</a></h1>
   <p>{{ settings.siteDescription }}</p>
 </div>
@@ -33,16 +34,7 @@
   </div>
 </div>
 
-<div class="container footer">
-  <div class="row">
-    <div class="column">
-      <a href="/">Home</a> |
-      <a href="/types/blog">Blog Posts</a> |
-      <a href="/types/project">Projects</a> |
-      <a href="/rss">RSS</a>
-    </div>
-  </div>
-</div>
+{{> footer }}
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
 </body>

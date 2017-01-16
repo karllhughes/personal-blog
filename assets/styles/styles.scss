@@ -24,8 +24,19 @@ p a {
 .header {
   background: #ffffff;
   padding: 2.5rem;
+  .social {
+    font-size: 1.8rem;
+    i {
+      margin-left: 1rem;
+    }
+  }
 }
 .main {
   max-width: 850px;
   margin: 0 auto;
+}
+.footer {
+  background: #ffffff;
+  padding: 2em;
+  text-align: center;
 }
