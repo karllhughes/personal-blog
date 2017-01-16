@@ -4,12 +4,17 @@ let PostController = require('../controllers/PostController');
 let PostEditController = require('../controllers/PostEditController');
 let PostsController = require('../controllers/PostsController');
 let RssController = require('../controllers/RssController');
+let SearchController = require('../controllers/SearchController');
 let TagController = require('../controllers/TagController');
 let TypeController = require('../controllers/TypeController');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   (new PostsController).get(req, res, next);
+});
+/* GET search page. */
+router.get('/search', function(req, res, next) {
+  (new SearchController).get(req, res, next);
 });
 /* GET single post page. */
 router.get('/posts/:id', function(req, res, next) {

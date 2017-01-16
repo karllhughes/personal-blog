@@ -1,5 +1,7 @@
-<div class="page-indicator">{{ title }}</div>
-<div class="posts">
+{{> page-indicator title=title}}
+
+<div class="row posts">
+  <div class="column">
   {{#each posts}}
     <div class="post">
       <!-- Post Title -->
@@ -26,5 +28,7 @@
       {{/if }}
     </div>
   {{/each}}
+  </div>
 </div>
-<div class="pagination-container">{{> pagination }}</div>
+
+{{> pagination }}

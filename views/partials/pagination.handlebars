@@ -1,8 +1,12 @@
-<ul class="pagination">
-  {{#if pagination.previousLink}}
-  <li><a href="{{pagination.previousLink}}">Previous</a></li>
-  {{/if}}
-  {{#if pagination.nextLink}}
-  <li><a href="{{pagination.nextLink}}">Next</a></li>
-  {{/if}}
-</ul>
+<div class="row pagination-container">
+  <div class="column">
+    <ul class="pagination">
+      {{#if pagination.previousLink}}
+      <li><a href="{{pagination.previousLink}}">Previous</a></li>
+      {{/if}}
+      {{#if pagination.nextLink}}
+      <li><a href="{{pagination.nextLink}}">Next</a></li>
+      {{/if}}
+    </ul>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 @import "~normalize.css";
 @import "~milligram";
 @import "forms";
+@import "page-indicator";
 @import "pagination";
 @import "post";
 @import "share";
@@ -27,11 +28,4 @@ p a {
 .main {
   max-width: 850px;
   margin: 0 auto;
-}
-
-.page-indicator {
-  padding: 2.5rem;
-}
-.pagination-container {
-  padding: 2.5rem;
 }
