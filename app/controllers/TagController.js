@@ -9,12 +9,10 @@ class TagController extends BaseController {
       .skip(self.getSkip(req.query.page, req.query.per_page))
       .limit(self.getLimit(req.query.per_page))
       .exec(function (err, docs) {
-        docs = docs.map(function (doc) {
-          doc.summary = self.filters.parseMarkdown(
-            self.filters.getFirstWords(doc.content, 30)
-          );
-          return doc;
-        });
+        // Clean the posts
+        docs = docs.map((doc) => self.cleanPost(doc));
+
+        // Render the view
         res.render('posts/index', { posts: docs, title: '"'+req.params.tag+'" Posts' });
     });
   }

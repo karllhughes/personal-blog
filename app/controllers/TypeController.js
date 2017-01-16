@@ -10,17 +10,11 @@ class TypeController extends BaseController {
         .skip(self.getSkip(req.query.page, req.query.per_page))
         .limit(self.getLimit(req.query.per_page))
         .exec(function (err, docs) {
-          docs = docs.map(function (doc) {
-            doc.summary = self.filters.parseMarkdown(
-              self.filters.getFirstWords(doc.content, 30)
-            );
-            return doc;
-          });
-          let data = {
-            posts: docs,
-            title: self.pageTitle(req.params.type)
-          };
-          res.render('posts/index', data);
+          // Clean the posts
+          docs = docs.map((doc) => self.cleanPost(doc));
+
+          // Render the view
+          res.render('posts/index', { posts: docs, title: self.pageTitle(req.params.type)});
       });
     }
   }

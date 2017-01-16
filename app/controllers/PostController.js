@@ -3,11 +3,11 @@ let BaseController = require('./BaseController');
 
 class PostController extends BaseController {
   get(req, res, next) {
-    let filters = this.filters;
+    let self = this;
     this.posts.findOne({"_id": req.params.id}, function (err, doc) {
 
-      // Parse markdown
-      doc.content = filters.parseMarkdown(doc.content);
+      // Cleanup the post
+      doc = self.cleanPost(doc);
 
       // Render the page
       res.render('posts/single', {post: doc, title: doc.title});

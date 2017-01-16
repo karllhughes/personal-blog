@@ -2,16 +2,25 @@
 <div class="posts">
   {{#each posts}}
     <div class="post">
+      <!-- Post Title -->
       <h2>
-        <a href="/posts/{{this._id}}">
-          {{this.title}}
-        </a>
+        <a href="/posts/{{this._id}}">{{this.title}}</a>
       </h2>
 
-      {{> type type=this.type }}
+      <!-- Metadata -->
+      <div class="row">
+        <div class="column">
+          {{> type type=this.type }}
+        </div>
+        <div class="column">
+          {{> date date=this.date }}
+        </div>
+        <div class="column">
+          {{> tags tags=this.tags }}
+        </div>
+      </div>
 
-      {{> tags tags=this.tags }}
-
+      <!-- Post Summary -->
       {{#if this.summary}}
         <div>{{{ this.summary }}}</div>
       {{/if }}

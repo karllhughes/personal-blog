@@ -1,9 +1,18 @@
 <div class="post" id="post-{{post._id}}">
   <h1>{{post.title}}</h1>
 
-  {{> type type=post.type }}
-
-  {{> tags tags=post.tags }}
+  <!-- Metadata -->
+  <div class="row">
+    <div class="column">
+      {{> type type=post.type }}
+    </div>
+    <div class="column">
+      {{> date date=post.date }}
+    </div>
+    <div class="column">
+      {{> tags tags=post.tags }}
+    </div>
+  </div>
 
   {{> share post=post }}
 

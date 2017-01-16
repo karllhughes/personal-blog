@@ -52,6 +52,7 @@ When things work, you can build the prod dockerfile and push it out to docker cl
 - [Marked markdown parser](https://github.com/chjj/marked)
 - [Node RSS feed generator](https://github.com/dylang/node-rss)
 - [Milligram styling framework](https://milligram.github.io/)
+- [Simple Line Icons](http://simplelineicons.com/)
 - [Docker and Docker-Compose](https://docs.docker.com/compose/)
 
 ### Structure
