@@ -1,4 +1,5 @@
-{"_id":"baseUrl","value":"http://khughes.me/"}
+{"_id":"authorName","value":"Karl Hughes"}
+{"_id":"baseUrl","value":"http://blog.khughes.me/"}
 {"_id":"menu","value":[{"url":"/","name":"Home"},{"url":"/types/blog","name":"Blog Posts"},{"url":"/types/project","name":"Projects"},{"url":"/types/link","name":"Links"},{"url":"/rss","name":"RSS Feed"}]}
 {"_id":"siteDescription","value":"Technology team builder and startup enthusiast"}
 {"_id":"siteName","value":"Karl Hughes"}

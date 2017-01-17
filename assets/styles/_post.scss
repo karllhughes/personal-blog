@@ -23,4 +23,11 @@
   .tags a {
     margin-right: .5rem;
   }
+
+  .post-content p {
+    line-height: 2.8rem;
+    a {
+      text-decoration: underline;
+    }
+  }
 }

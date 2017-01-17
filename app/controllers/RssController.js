@@ -13,20 +13,20 @@ class RssController extends BaseController {
       .limit(self.getLimit(req.query.per_page))
       .exec(function (err, docs) {
 
-      let rss = self.addItemsToFeed(self.createFeed(), docs);
+      let rss = self.addItemsToFeed(self.createFeed(res.locals.settings), docs);
 
       res.set('Content-Type', 'application/rss+xml');
       res.send(rss.xml());
     });
   }
 
-  createFeed() {
+  createFeed(settings) {
     let feedOptions = {
-      title: 'Karls Blog',
-      description: 'My personal blog.',
-      feed_url: 'http://blog.khughes.me/rss',
-      site_url: 'http://blog.khughes.me',
-      copyright: '2017 Karl L. Hughes',
+      title: settings.siteName,
+      description: settings.siteDescription,
+      feed_url: settings.baseUrl + '/rss',
+      site_url: settings.baseUrl,
+      copyright: settings.year + ' ' + settings.authorName,
       language: 'en',
       pubDate: new Date().toString()
     };
