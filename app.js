@@ -3,8 +3,7 @@ let path = require('path');
 let favicon = require('serve-favicon');
 let exphbs  = require('express-handlebars');
 let web = require('./app/routes/web');
-let database = require('./app/database');
-let moment = require('moment');
+let middleware = require('./app/routes/middleware');
 require('dotenv').config();
 
 let app = express();
@@ -17,35 +16,8 @@ app.set('view engine', 'handlebars');
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Add global settings to the response
-app.use(function (req, res, next) {
-  // Get settings from the DB
-  res.locals.settings = {
-    year: moment().format('YYYY')
-  };
-  database.settings.find({}, function (err, settingObjects) {
-    // Process setting objects into one object
-    settingObjects.map(function (settingObject) {
-      res.locals.settings[settingObject._id] = settingObject.value;
-    });
-    next();
-  });
-});
-
-// Add pagination links to response
-app.use(function (req, res, next) {
-  let currentPage = req.query.page ? parseInt(req.query.page) : 1;
-  let previousPage = currentPage > 1 ? currentPage - 1: null;
-  let nextPage = currentPage + 1;
-
-  res.locals.pagination = {};
-  res.locals.pagination.nextLink = nextPage ? req.path+"?page="+nextPage : null;
-  res.locals.pagination.previousLink = previousPage ? req.path+"?page="+previousPage : null;
-
-  next();
-});
-
-// Load the routes
+// Load the middleware and routes
+app.use(middleware);
 app.use('/', web);
 
 // 404 response
