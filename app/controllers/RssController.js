@@ -24,7 +24,7 @@ class RssController extends BaseController {
     let feedOptions = {
       title: settings.siteName,
       description: settings.siteDescription,
-      feed_url: settings.baseUrl + '/rss',
+      feed_url: settings.baseUrl + 'rss',
       site_url: settings.baseUrl,
       copyright: settings.year + ' ' + settings.authorName,
       language: 'en',
