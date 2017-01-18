@@ -1,5 +1,5 @@
 # Personal Blog v.4
-This is my new personal blog hosted at [karllhughes.com](https://www.karllhughes.com). Wordpress has become too cumbersome for my simple needs, so I made this NodeJS application to serve as my blog. Feel free to use it (with attribution) or learn from it.
+This is my personal blog hosted at [karllhughes.com](https://www.karllhughes.com). Wordpress has become too cumbersome for my simple needs, so I made this NodeJS application to serve as my blog. Feel free to use it (with attribution) or learn from it.
 
 _Note: older versions of this site were maintained in [another repository](https://github.com/karllhughes/KH-Blog)._
 
@@ -20,6 +20,7 @@ _Note: older versions of this site were maintained in [another repository](https
 - [Milligram styling framework](https://milligram.github.io/)
 - [Simple Line Icons](http://simplelineicons.com/)
 - [Docker and Docker-Compose](https://docs.docker.com/compose/)
+- [Webpack Builder](https://webpack.github.io/)
 
 ### Structure
 - `app/` The controllers, routes, middleware, database connections, etc. needed for the NodeJS application. This is where the bulk of the work happens.
@@ -28,6 +29,8 @@ _Note: older versions of this site were maintained in [another repository](https
 - `database/*` The DB content is stored in the repo until I get something more permanent set up.
 - `public/*` Built frontend files/scripts.
 - `views/*` Handlebars view templates.
+- `app.js` The Express application starting point.
+- `entry.js` The Webpack entry script.
 
 
 ## Docker Setup
