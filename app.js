@@ -9,7 +9,19 @@ require('dotenv').config();
 let app = express();
 
 // view engine setup
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+let hbs = exphbs.create({
+  defaultLayout: 'main',
+  helpers: {
+    if_string: function(a, b, opts) {
+      if(a === b)
+        return opts.fn(this);
+      else
+        return opts.inverse(this);
+    }
+  }
+});
+
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 // uncomment after placing your favicon in /public

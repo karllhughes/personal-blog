@@ -18,5 +18,13 @@
 
   <div class="post-content">{{{ post.content }}}</div>
 
-  <!--<div><a href="/posts/{{post._id}}/edit"><i class="icon-note icons"></i> Edit</a></div>-->
+  <div class="link-button">
+    {{#if_string post.type 'link' }}
+      <a href="{{ post.postUrl }}" class="button">
+        <i class="icons icon-book-open"></i>
+        Read More
+      </a>
+    {{/if_string}}
+  </div>
+
 </div>
