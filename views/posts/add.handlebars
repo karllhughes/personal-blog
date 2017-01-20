@@ -1,0 +1,39 @@
+<div class="page-indicator">{{ title }}</div>
+<div class="post" id="add-post">
+  <form method="post" action="/posts/add">
+    <label for="title" class="required">Name</label>
+    <input name="title" type="text" value="" id="title" required>
+
+    <label for="content" class="required">Content</label>
+    <textarea name="content" id="content"></textarea>
+
+    <label for="type" class="required">Type</label>
+    <select id="type" name="type">
+      <option value="blog">blog</option>
+      <option value="link">link</option>
+      <option value="page">page</option>
+      <option value="project">project</option>
+    </select>
+
+    <div class="extra">
+      <label for="_id">ID</label>
+      <input name="_id" type="text" value="" id="_id">
+
+      <label for="imageUrl">Image Url</label>
+      <input name="imageUrl" type="text" value="" id="imageUrl">
+
+      <label for="postUrl">Post Url</label>
+      <input name="postUrl" type="text" value="" id="postUrl">
+
+      <label for="tags">Tags</label>
+      <input name="tags" type="text" value="" id="tags">
+    </div>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+<script>
+  var simplemde = new SimpleMDE();
+</script>

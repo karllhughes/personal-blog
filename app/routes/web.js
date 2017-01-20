@@ -16,15 +16,22 @@ router.get('/', function(req, res, next) {
 router.get('/search', function(req, res, next) {
   (new SearchController).get(req, res, next);
 });
+/* GET add single post page. */
+router.get('/posts/add', function(req, res, next) {
+  (new PostEditController).getAdd(req, res, next);
+});
+/* POST add single post. */
+router.post('/posts/add', function(req, res, next) {
+  (new PostEditController).postAdd(req, res, next);
+});
 /* GET single post page. */
 router.get('/posts/:id', function(req, res, next) {
   (new PostController).get(req, res, next);
 });
-/* GET edit single post page. - WIP
+/* GET edit single post page. */
 router.get('/posts/:id/edit', function(req, res, next) {
-  (new PostEditController).get(req, res, next);
+  (new PostEditController).getEdit(req, res, next);
 });
- */
 /* GET posts by type. */
 router.get('/types/:type', function(req, res, next) {
   (new TypeController).get(req, res, next);

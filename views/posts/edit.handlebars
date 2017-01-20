@@ -9,10 +9,14 @@
 
     <label for="type" class="required">Type</label>
     <select id="type" name="type">
-      <option value="blog">blog</option>
-      <option value="link">link</option>
-      <option value="page">page</option>
-      <option value="project">project</option>
+      <option value="blog"
+              {{#if_string post.type 'blog'}}selected{{/if_string}}>blog</option>
+      <option value="link"
+        {{#if_string post.type 'link'}}selected{{/if_string}}>link</option>
+      <option value="page"
+        {{#if_string post.type 'page'}}selected{{/if_string}}>page</option>
+      <option value="project"
+        {{#if_string post.type 'project'}}selected{{/if_string}}>project</option>
     </select>
 
     <div class="extra">

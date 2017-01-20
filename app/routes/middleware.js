@@ -1,7 +1,11 @@
 'use strict';
-let router = require('express').Router();
+let bodyParser = require('body-parser');
 let database = require('../database');
 let moment = require('moment');
+let router = require('express').Router();
+
+// support url encoded bodies
+router.use(bodyParser.urlencoded({ extended: true }));
 
 // Add pagination links to response
 router.use(function (req, res, next) {
