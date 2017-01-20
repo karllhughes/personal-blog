@@ -1,6 +1,10 @@
 <div class="row page-indicator">
   <div class="column title">
-    <h5>{{ title }}</h5>
+    <h5>{{ title }}
+      {{#if_string settings.environment 'development'}}
+          | <a href="/posts/add">New Post</a>
+      {{/if_string}}
+    </h5>
   </div>
 
   <div class="column search">

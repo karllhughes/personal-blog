@@ -8,4 +8,4 @@ personal-blog-dev:
     - "./app.js:/src/app.js"
   entrypoint: npm run serve:dev
   ports:
-    - "43000:3001"
+    - "43000:3000"

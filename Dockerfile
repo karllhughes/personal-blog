@@ -5,11 +5,10 @@ RUN mkdir /src
 
 WORKDIR /src
 
-ADD ./.env.example /src/.env
 ADD ./nodemon.json /src/nodemon.json
 ADD ./package.json /src/package.json
 
-RUN npm install
+RUN npm install --silent
 
 ADD ./app /src/app
 ADD ./assets /src/assets
@@ -23,6 +22,6 @@ ADD ./webpack.config.js /src/webpack.config.js
 
 RUN npm run webpack
 
-EXPOSE 3001
+EXPOSE 3000
 
 CMD npm run serve

@@ -6,7 +6,7 @@
     "webpack": "./node_modules/.bin/webpack",
     "webpack:watch": "./node_modules/.bin/webpack --watch",
     "start": "npm run serve",
-    "serve": "./node_modules/.bin/nodemon bin/www",
+    "serve": "NODE_ENV=production node bin/www",
     "serve:dev": "./node_modules/.bin/nodemon -L bin/www & npm run webpack:watch"
   },
   "engines": {
@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "debug": "~2.2.0",
-    "dotenv": "^2.0.0",
     "express": "~4.14.0",
     "express-handlebars": "^3.0.0",
     "marked": "^0.3.6",

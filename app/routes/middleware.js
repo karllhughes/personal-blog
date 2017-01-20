@@ -20,7 +20,8 @@ router.use(function (req, res, next) {
 router.use(function (req, res, next) {
   // Get settings from the DB
   res.locals.settings = {
-    year: moment().format('YYYY')
+    year: moment().format('YYYY'),
+    environment: process.env.NODE_ENV || 'development',
   };
   database.settings.find({}, function (err, settingObjects) {
     // Process setting objects into one object

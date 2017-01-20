@@ -4,7 +4,6 @@ let favicon = require('serve-favicon');
 let exphbs  = require('express-handlebars');
 let web = require('./app/routes/web');
 let middleware = require('./app/routes/middleware');
-require('dotenv').config();
 
 let app = express();
 

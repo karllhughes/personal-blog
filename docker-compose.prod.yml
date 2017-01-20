@@ -1,4 +1,4 @@
 personal-blog-prod:
   build: .
   ports:
-    - "43000:3001"
+    - "43000:3000"

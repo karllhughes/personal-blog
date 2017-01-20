@@ -6,10 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
-- Nothing yet.
+- Button to "Read More" on "link" type posts.
+- Ability to edit/create posts if in development environment.
 
 ### Changed
 - Nothing yet.
+
+### Removed
+- Need for .env file.
 
 ## [4.0.0] - 2017-01-18
 ### Changed

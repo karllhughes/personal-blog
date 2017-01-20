@@ -27,4 +27,10 @@
     {{/if_string}}
   </div>
 
+  {{#if_string settings.environment 'development'}}
+    <div>
+      <a href="/posts/{{post._id}}/edit">Edit</a>
+    </div>
+  {{/if_string}}
+
 </div>
