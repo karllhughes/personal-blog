@@ -1,6 +1,6 @@
 <div class="page-indicator">{{ title }}</div>
 <div class="post" id="post-{{post._id}}">
-  <form>
+  <form method="post" action="/posts/{{post._id}}/edit">
     <label for="title" class="required">Name</label>
     <input name="title" type="text" value="{{post.title}}" id="title" required>
 
@@ -10,7 +10,7 @@
     <label for="type" class="required">Type</label>
     <select id="type" name="type">
       <option value="blog"
-              {{#if_string post.type 'blog'}}selected{{/if_string}}>blog</option>
+        {{#if_string post.type 'blog'}}selected{{/if_string}}>blog</option>
       <option value="link"
         {{#if_string post.type 'link'}}selected{{/if_string}}>link</option>
       <option value="page"
@@ -21,7 +21,7 @@
 
     <div class="extra">
       <label for="_id">ID</label>
-      <input name="_id" type="text" value="{{post._id}}" id="_id">
+      <input name="_id" type="text" value="{{post._id}}" id="_id" readonly disabled>
 
       <label for="imageUrl">Image Url</label>
       <input name="imageUrl" type="text" value="{{post.imageUrl}}" id="imageUrl">
@@ -32,6 +32,8 @@
       <label for="tags">Tags</label>
       <input name="tags" type="text" value="" id="tags">
     </div>
+
+    <input type="submit" value="Submit">
   </form>
 </div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
