@@ -14,13 +14,14 @@ _Note: older versions of this site were maintained in [another repository](https
 - [Node 6.7+](https://nodejs.org/en/)
 - [ExpressJS framework](http://expressjs.com/en/resources/frameworks.html)
 - [NeDB database](https://github.com/louischatriot/nedb)
+- [Camo ODM](https://github.com/scottwrobinson/camo)
 - [Handlebars templating engine](http://handlebarsjs.com/)
 - [Marked markdown parser](https://github.com/chjj/marked)
 - [Node RSS feed generator](https://github.com/dylang/node-rss)
+- [Webpack Builder](https://webpack.github.io/)
 - [Milligram styling framework](https://milligram.github.io/)
 - [Simple Line Icons](http://simplelineicons.com/)
 - [Docker and Docker-Compose](https://docs.docker.com/compose/)
-- [Webpack Builder](https://webpack.github.io/)
 
 ### Structure
 - `app/` The controllers, routes, middleware, database connections, etc. needed for the NodeJS application. This is where the bulk of the work happens.
@@ -64,12 +65,11 @@ Okay, I know Docker's not for everyone, but you can also run this application lo
 
 ### Local Development
 - Clone this repo.
-- Copy (and modify) the `.env.example` file to `.env`.
 - At the command line, run `npm install`.
 - Then build the project: `npm run webpack`.
 - Start the nodemon server by running `npm start`.
 
-The blog will be running on your localhost at the port specified in your `.env` file.
+The blog will be running on your localhost at port 3000.
 
 To listen for changes to the frontend assets, you can open a new terminal window and run `npm run webpack:watch`.
 

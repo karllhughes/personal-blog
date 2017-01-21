@@ -6,14 +6,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+- Nothing yet.
+
+## [4.1.0] - 2017-01-21
+### Added
 - Button to "Read More" on "link" type posts.
 - Ability to edit/create posts if in development environment.
 
 ### Changed
-- Nothing yet.
+- Moved database data files to `.db` extension.
+- Migrated to [Camo ODM](https://github.com/scottwrobinson/camo).
 
 ### Removed
-- Need for .env file.
+- `.env` File and dependency. Variables now stored in Docker setup.
 
 ## [4.0.0] - 2017-01-18
 ### Changed

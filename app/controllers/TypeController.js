@@ -1,26 +1,14 @@
 'use strict';
-let BaseController = require('./BaseController');
+let PostsController = require('./PostsController');
 
-class TypeController extends BaseController {
-  get(req, res, next) {
-    let self = this;
-    if (this.filters.isValidType(req.params.type)) {
-      this.posts.find({"type": req.params.type})
-        .sort({ createdAt: -1 })
-        .skip(self.getSkip(req.query.page, req.query.per_page))
-        .limit(self.getLimit(req.query.per_page))
-        .exec(function (err, docs) {
-          // Clean the posts
-          docs = docs.map((doc) => self.cleanPost(doc));
+class TypeController extends PostsController {
 
-          // Render the view
-          res.render('posts/index', { posts: docs, title: self.pageTitle(req.params.type)});
-      });
-    }
+  getQuery(params) {
+    return { type: params.type };
   }
 
-  pageTitle(type) {
-    return this.filters.ucwords(type)+' Posts';
+  getTitle(params) {
+    return this.filters.ucwords(params.type)+' Posts';
   }
 }
 

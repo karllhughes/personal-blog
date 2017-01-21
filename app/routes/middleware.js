@@ -1,7 +1,13 @@
 'use strict';
-let router = require('express').Router();
-let database = require('../database');
+let bodyParser = require('body-parser');
 let moment = require('moment');
+let router = require('express').Router();
+let connect = require('camo').connect;
+let uri = 'nedb://'+__dirname+'/../../database';
+let Setting = require('../models/Setting');
+
+// support url encoded bodies
+router.use(bodyParser.urlencoded({ extended: true }));
 
 // Add pagination links to response
 router.use(function (req, res, next) {
@@ -16,19 +22,27 @@ router.use(function (req, res, next) {
   next();
 });
 
+// Connect to the DB before future calls
+router.use(function (req, res, next) {
+  connect(uri).then((db) => {
+    return next();
+  });
+});
+
 // Add global settings to the response
 router.use(function (req, res, next) {
-  // Get settings from the DB
+  // Some environmental settings
   res.locals.settings = {
     year: moment().format('YYYY'),
     environment: process.env.NODE_ENV || 'development',
   };
-  database.settings.find({}, function (err, settingObjects) {
-    // Process setting objects into one object
+
+  // Process settings from the DB
+  Setting.find({}).then((settingObjects) => {
     settingObjects.map(function (settingObject) {
       res.locals.settings[settingObject._id] = settingObject.value;
     });
-    next();
+    return next();
   });
 });
 
