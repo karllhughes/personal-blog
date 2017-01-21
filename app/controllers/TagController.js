@@ -1,20 +1,14 @@
 'use strict';
-let BaseController = require('./BaseController');
+let PostsController = require('./PostsController');
 
-class TagController extends BaseController {
-  get(req, res, next) {
-    let self = this;
-    this.posts.find({"tags._id": req.params.tag})
-      .sort({ createdAt: -1 })
-      .skip(self.getSkip(req.query.page, req.query.per_page))
-      .limit(self.getLimit(req.query.per_page))
-      .exec(function (err, docs) {
-        // Clean the posts
-        docs = docs.map((doc) => self.cleanPost(doc));
+class TagController extends PostsController {
 
-        // Render the view
-        res.render('posts/index', { posts: docs, title: '"'+req.params.tag+'" Posts' });
-    });
+  getQuery(params) {
+    return { "tags._id": params.tag };
+  }
+
+  getTitle(params) {
+    return '"'+params.tag+'" Posts';
   }
 }
 

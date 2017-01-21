@@ -1,6 +1,5 @@
 'use strict';
 let filters = require('../filters');
-let database = require('../database');
 let moment = require('moment');
 
 const startingPage = 1;
@@ -8,7 +7,6 @@ const perPage = 20;
 
 class BaseController {
   constructor() {
-    this.posts = database.posts;
     this.filters = filters;
   }
 

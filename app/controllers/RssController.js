@@ -1,23 +1,19 @@
 'use strict';
-let BaseController = require('./BaseController');
+let PostsController = require('./PostsController');
 let RSS = require('rss');
 
-class RssController extends BaseController {
+class RssController extends PostsController {
 
-  get(req, res, next) {
-    let self = this;
+  renderView(posts, req, res, next) {
+    // Create the rss feed
+    let rss = this.addItemsToFeed(
+      this.createFeed(res.locals.settings),
+      posts
+    );
 
-    this.posts.find({})
-      .sort({ createdAt: -1 })
-      .skip(self.getSkip(req.query.page, req.query.per_page))
-      .limit(self.getLimit(req.query.per_page))
-      .exec(function (err, docs) {
-
-      let rss = self.addItemsToFeed(self.createFeed(res.locals.settings), docs);
-
-      res.set('Content-Type', 'application/rss+xml');
-      res.send(rss.xml());
-    });
+    // Return a response
+    res.set('Content-Type', 'application/rss+xml');
+    res.send(rss.xml());
   }
 
   createFeed(settings) {

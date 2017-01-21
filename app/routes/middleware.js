@@ -3,6 +3,8 @@ let bodyParser = require('body-parser');
 let database = require('../database');
 let moment = require('moment');
 let router = require('express').Router();
+let connect = require('camo').connect;
+let uri = 'nedb://'+__dirname+'/../../database';
 
 // support url encoded bodies
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -20,6 +22,13 @@ router.use(function (req, res, next) {
   next();
 });
 
+// Connect to the DB before future calls
+router.use(function (req, res, next) {
+  connect(uri).then((db) => {
+    return next();
+  });
+});
+
 // Add global settings to the response
 router.use(function (req, res, next) {
   // Get settings from the DB
@@ -32,7 +41,7 @@ router.use(function (req, res, next) {
     settingObjects.map(function (settingObject) {
       res.locals.settings[settingObject._id] = settingObject.value;
     });
-    next();
+    return next();
   });
 });
 

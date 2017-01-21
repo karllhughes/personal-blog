@@ -20,21 +20,32 @@ class PostEditController extends BaseController {
   postAdd(req, res, next) {
     let self = this;
     let data = req.body;
-    self.hasRequiredFields(data, function (data) {
-      self.hasId(data, function (data) {
-        console.log(data);
-        self.posts.insert(data, function (err, newData) {
-          console.log(newData);
-          return res.redirect('/posts/'+newData._id);
-        });
+    self.cleanAndValidatePost(data, function (data) {
+      console.log(data);
+      return res.redirect('/');
+      /*
+      self.posts.insert(data, function (err, newData) {
+        console.log(newData);
+        return res.redirect('/posts/'+newData._id);
       });
-    }, function() {
-      res.redirect('/');
+      */
+    }, function(error) {
+      console.error(error);
+      return res.redirect('/');
     });
   }
 
   getTitle(postTitle) {
     return "Editing \""+postTitle+"\"";
+  }
+
+  cleanAndValidateData(data, callback, error) {
+    let self = this;
+    self.hasRequiredFields(data, function (data) {
+      self.hasId(data, function (data) {
+        return callback(data);
+      });
+    }, error('Required fields not set'));
   }
 
   hasRequiredFields(data, callback, error) {
