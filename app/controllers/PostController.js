@@ -1,18 +1,23 @@
 'use strict';
 let BaseController = require('./BaseController');
+let Post = require('../models/Post');
 
 class PostController extends BaseController {
   get(req, res, next) {
     let self = this;
-    this.posts.findOne({"_id": req.params.id}, function (err, doc) {
-      if (doc) {
+
+    // Carry out the query and call the view render function
+    Post.findOne({"_id": req.params.id}).then((post) => {
+      if (post) {
         // Cleanup the post
-        doc = self.cleanPost(doc);
+        post = self.cleanPost(post);
 
         // Render the page
-        return res.render('posts/single', {post: doc, title: doc.title});
+        return res.render('posts/single', {post: post, title: post.title});
+      } else {
+        // Or 404 if none found
+        return next();
       }
-      return res.status(404).render('posts/404');
     });
   }
 }
