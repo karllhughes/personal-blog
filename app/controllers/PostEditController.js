@@ -30,8 +30,12 @@ class PostEditController extends BaseController {
   }
 
   postEdit(req, res, next) {
+    // Set updated at to today
+    let data = req.body;
+    data.updatedAt = new Date();
+
     // Get post by id and update
-    Post.findOneAndUpdate({"_id": req.params.id}, Post.clean(req.body)).then((post) => {
+    Post.findOneAndUpdate({"_id": req.params.id}, Post.clean(data)).then((post) => {
       return res.redirect('/posts/'+post._id);
     }).catch((error) => {
       console.error(error);
