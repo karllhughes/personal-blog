@@ -10,10 +10,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Ability to edit/create posts if in development environment.
 
 ### Changed
-- Nothing yet.
+- Moved database data files to `.db` extension.
+- Migrated to [Camo ODM](https://github.com/scottwrobinson/camo) from raw NEDB queries.
 
 ### Removed
-- Need for .env file.
+- `.env` File and dependency. Variables now stored in Docker setup.
 
 ## [4.0.0] - 2017-01-18
 ### Changed
