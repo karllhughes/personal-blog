@@ -9,7 +9,11 @@ class PostEditController extends BaseController {
     if (req.params.id) {
       Post.findOne({"_id": req.params.id}).then((post) => {
         if (post) {
-          return res.render('posts/edit', {post: post, title: "Edit Post"});
+          // Convert tags to comma separated string
+          post.tags = post.tags.map((tag) => {
+            return tag._id;
+          }).join(', ');
+          return res.render('posts/edit', { post: post, title: "Edit Post" });
         } else {
           return next();
         }

@@ -9,7 +9,6 @@ let TagController = require('../controllers/TagController');
 let TypeController = require('../controllers/TypeController');
 
 function isDev(req, res, next) {
-  console.log(process.env.NODE_ENV);
   if (process.env.NODE_ENV === 'development') {
     return next();
   } else {
