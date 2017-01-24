@@ -21,10 +21,10 @@
 </head>
 <body>
 
-<div class="container header">
+<div id="author" class="container header" itemscope itemprop="Person" itemtype="http://schema.org/Person">
   {{> social-links }}
-  <h1><a href="/">{{ settings.siteName }}</a></h1>
-  <h5>{{ settings.siteDescription }}</h5>
+  <h1><a href="/" itemprop="name">{{ settings.siteName }}</a></h1>
+  <h5 itemprop="description">{{ settings.siteDescription }}</h5>
 </div>
 
 <div class="container main">

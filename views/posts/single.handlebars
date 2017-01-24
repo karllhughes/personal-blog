@@ -1,15 +1,20 @@
-<div class="post" id="post-{{post._id}}">
-  <h1>{{post.title}}</h1>
+<div class="post" id="post-{{post._id}}" itemscope itemtype="http://schema.org/Article">
+  <h1 itemprop="name headline">{{post.title}}</h1>
+  <div itemprop="author publisher" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="{{ settings.authorName }}" />
+  </div>
+  <meta itemprop="image" content="{{ imageUrl }}">
+  <meta itemprop="dateModified" content="{{ post.updatedAt }}">
 
   <!-- Metadata -->
   <div class="row">
-    <div class="column">
+    <div class="column" itemprop="articleSection">
       {{> type type=post.type }}
     </div>
-    <div class="column">
+    <div class="column" itemprop="datePublished">
       {{> date date=post.date }}
     </div>
-    <div class="column">
+    <div class="column" itemprop="keywords">
       {{> tags tags=post.tags }}
     </div>
   </div>
@@ -20,7 +25,7 @@
     <div class="post-image"><img src="{{ post.imageUrl }}"></div>
   {{/if}}
 
-  <div class="post-content">{{{ post.content }}}</div>
+  <div class="post-content" itemprop="articleBody mainEntityOfPage">{{{ post.content }}}</div>
 
   <div class="link-button">
     {{#if_string post.type 'link' }}

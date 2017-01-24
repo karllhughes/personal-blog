@@ -3,10 +3,10 @@
 <div class="row posts">
   <div class="column">
   {{#each posts}}
-    <div class="post">
+    <div class="post" itemscope itemtype="http://schema.org/Article">
       <!-- Post Title -->
       <h2>
-        <a href="/posts/{{this._id}}">{{this.title}}</a>
+        <a itemprop="url" href="/posts/{{this._id}}">{{this.title}}</a>
       </h2>
 
       <!-- Metadata -->
