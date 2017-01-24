@@ -1,6 +1,6 @@
 {
   "name": "personal-blog",
-  "version": "0.1.0",
+  "version": "4.1.0",
   "private": true,
   "scripts": {
     "webpack": "./node_modules/.bin/webpack",
@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "css-loader": "^0.26.1",
+    "image-webpack-loader": "^3.1.0",
     "milligram": "^1.2.4",
     "node-sass": "^4.3.0",
     "normalize.css": "^5.0.0",

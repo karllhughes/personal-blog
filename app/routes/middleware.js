@@ -51,4 +51,10 @@ router.use('/:year(\\d+)/:id', function(req, res, next) {
   return res.redirect(301, '/posts/' + req.params.id);
 });
 
+// Robots.txt file
+router.get('/robots.txt', function (req, res) {
+  res.type('text/plain');
+  res.send("User-agent: *\nDisallow:\nAllow: /");
+});
+
 module.exports = router;

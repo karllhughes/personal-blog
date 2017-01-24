@@ -2,28 +2,29 @@
 <html lang="en">
 <head>
   <base href="/">
+  <!-- Basic metadata -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="{{ settings.siteDescription }}">
+  <meta name="author" content="{{ settings.authorName }}">
 
   <title>{{ title }} | {{ settings.siteName }}</title>
+
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
-  <link rel="icon" href="/favicon.png" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
 
-  <!-- Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  {{> head/social }}
 
-  <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
+  {{> head/styles }}
 </head>
 <body>
 
 <div class="container header">
   {{> social-links }}
   <h1><a href="/">{{ settings.siteName }}</a></h1>
-  <p>{{ settings.siteDescription }}</p>
+  <h5>{{ settings.siteDescription }}</h5>
 </div>
 
 <div class="container main">
