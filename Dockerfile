@@ -14,7 +14,6 @@ ADD ./app /src/app
 ADD ./assets /src/assets
 ADD ./bin /src/bin
 ADD ./database /src/database
-ADD ./public /src/public
 ADD ./views /src/views
 ADD ./app.js /src/app.js
 ADD ./entry.js /src/entry.js
