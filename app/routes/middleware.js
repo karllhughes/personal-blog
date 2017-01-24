@@ -46,6 +46,15 @@ router.use(function (req, res, next) {
   });
 });
 
+router.use(function (req, res, next) {
+  // Default description, image, url
+  res.locals.description = res.locals.settings.siteDescription;
+  res.locals.imageUrl = req.protocol + '://' + req.get('host') + "/images/default.png";
+  res.locals.currentUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+
+  return next();
+});
+
 /* 301 redirect /:year/:id to /posts/:id */
 router.use('/:year(\\d+)/:id', function(req, res, next) {
   return res.redirect(301, '/posts/' + req.params.id);

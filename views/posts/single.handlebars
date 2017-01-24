@@ -16,6 +16,10 @@
 
   {{> share post=post }}
 
+  {{#if post.imageUrl}}
+    <div class="post-image"><img src="{{ post.imageUrl }}"></div>
+  {{/if}}
+
   <div class="post-content">{{{ post.content }}}</div>
 
   <div class="link-button">

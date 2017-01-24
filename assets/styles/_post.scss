@@ -24,6 +24,13 @@
     margin-right: .5rem;
   }
 
+  .post-image {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
   .post-content p {
     line-height: 2.8rem;
     a {

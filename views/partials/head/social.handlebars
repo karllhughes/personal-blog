@@ -1,15 +1,15 @@
 <!-- Twitter Card data -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="{{ title }} | {{ settings.siteName }}">
-<meta name="twitter:description" content="DYNAMIC DESCRIPTION">
-<meta name="twitter:image" content="DYNAMIC IMAGE">
+<meta name="twitter:description" content="{{ description }}">
+<meta name="twitter:image" content="{{ imageUrl }}">
 <meta name="twitter:site" content="{{ settings.twitterHandle }}">
 <meta name="twitter:creator" content="{{ settings.twitterHandle }}">
 
 <!-- Open Graph data -->
-<meta property="og:title" content="{{ title }}" />
+<meta property="og:title" content="{{ title }} | {{ settings.siteName }}" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="DYNAMIC CURRENT URL" />
-<meta property="og:image" content="DYNAMIC IMAGE" />
-<meta property="og:description" content="DYNAMIC DESCRIPTION" />
+<meta property="og:url" content="{{ currentUrl }}" />
+<meta property="og:image" content="{{ imageUrl }}" />
+<meta property="og:description" content="{{ description }}" />
 <meta property="og:site_name" content="{{ settings.siteName }}" />

@@ -12,6 +12,10 @@ class PostController extends BaseController {
         // Cleanup the post
         post = self.cleanPost(post);
 
+        // Set up the post meta variables
+        res.locals.description = post.summary ? post.summary : res.locals.description;
+        res.locals.imageUrl = post.imageUrl ? post.imageUrl : res.locals.imageUrl;
+
         // Render the page
         return res.render('posts/single', {post: post, title: post.title});
       } else {
