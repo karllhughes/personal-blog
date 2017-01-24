@@ -1,4 +1,4 @@
-<div class="post" id="post-{{post._id}}" itemscope itemtype="http://schema.org/Article">
+<article class="post" id="post-{{post._id}}" itemscope itemtype="http://schema.org/Article">
   <h1 itemprop="name headline">{{post.title}}</h1>
   <div itemprop="author publisher" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="{{ settings.authorName }}" />
@@ -42,4 +42,4 @@
     </div>
   {{/if_string}}
 
-</div>
+</article>

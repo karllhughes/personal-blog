@@ -1,17 +1,15 @@
-
-<div class="container footer">
+<footer class="container footer">
   <div class="row">
     {{#if settings.menu}}
-    <div class="column">
+    <nav class="column">
       {{#each settings.menu}}
         <a href="{{this.url}}">{{this.name}}</a>{{#unless @last}} |{{/unless}}
       {{/each}}
-    </div>
+    </nav>
     {{/if}}
     <div class="column">
-      &copy;{{ settings.year }}
-      - {{ settings.authorName }}
+      &copy;{{ settings.year }} - {{ settings.authorName }}
     </div>
   </div>
-</div>
+</footer>
 
