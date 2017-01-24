@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+- Nothing yet.
+
+## [4.2.0] - 2017-01-24
+### Added
 - Improved meta tags in head for SEO/content visibility.
 - Added robots.txt middleware function.
 - Building images and favicon with webpack, ignoring public directory.
