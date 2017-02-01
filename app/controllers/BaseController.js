@@ -1,6 +1,7 @@
 'use strict';
 let filters = require('../filters');
 let moment = require('moment');
+let striptags = require('striptags');
 
 const startingPage = 1;
 const perPage = 20;
@@ -12,7 +13,10 @@ class BaseController {
 
   cleanPost(post) {
     post.content = this.filters.parseMarkdown(post.content);
-    post.summary = this.filters.getFirstWords(post.content, 30);
+    post.summary = this.filters.getFirstWords(
+      striptags(post.content),
+      30
+    );
     post.date = moment(post.createdAt).format('MMMM D, YYYY');
     return post;
   }

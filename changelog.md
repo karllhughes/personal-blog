@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Nothing yet.
 
+### Fixed
+- Removed HTML tags from summaries to prevent broken pages.
+
 ## [4.2.0] - 2017-01-24
 ### Added
 - Improved meta tags in head for SEO/content visibility.

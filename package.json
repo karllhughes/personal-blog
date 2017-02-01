@@ -23,7 +23,8 @@
     "nedb": "^1.8.0",
     "nodemon": "^1.11.0",
     "rss": "^1.2.2",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "striptags": "~3.0.0"
   },
   "devDependencies": {
     "css-loader": "^0.26.1",
