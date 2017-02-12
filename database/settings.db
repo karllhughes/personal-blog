@@ -1,7 +1,0 @@
-{"_id":"authorName","value":"Karl Hughes"}
-{"_id":"baseUrl","value":"https://www.karllhughes.com/"}
-{"_id":"menu","value":[{"url":"/","name":"Home"},{"url":"/types/blog","name":"Blog Posts"},{"url":"/types/project","name":"Projects"},{"url":"/types/link","name":"Links"},{"url":"/rss","name":"RSS Feed"}]}
-{"_id":"siteDescription","value":"Technology team builder and startup enthusiast"}
-{"_id":"siteName","value":"Karl Hughes"}
-{"_id":"social","value":{"linkedin":"https://www.linkedin.com/in/karllhughes","github":"https://github.com/karllhughes","twitter":"https://twitter.com/karllhughes"}}
-{"_id":"twitterHandle","value":"@karllhughes"}
