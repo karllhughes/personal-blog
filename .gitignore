@@ -1,13 +1,7 @@
-# NPM
 *.log
 npm-debug.log*
 node_modules
-
-# IDE
 .idea
-
-# Mac
 .DS_Store
-
-# Compiled assets
 public/
+database/

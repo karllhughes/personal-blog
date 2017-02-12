@@ -13,7 +13,6 @@ RUN npm install --silent
 ADD ./app /src/app
 ADD ./assets /src/assets
 ADD ./bin /src/bin
-ADD ./database /src/database
 ADD ./views /src/views
 ADD ./app.js /src/app.js
 ADD ./entry.js /src/entry.js
