@@ -56,5 +56,10 @@ router.get('/tags/:tag', function(req, res, next) {
 router.get('/rss', function(req, res, next) {
   (new RssController).get(req, res, next);
 });
+/* GET robots.txt file */
+router.get('/robots.txt', function (req, res) {
+  res.type('text/plain');
+  res.send("User-agent: *\nDisallow:\nAllow: /");
+});
 
 module.exports = router;
