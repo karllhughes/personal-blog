@@ -6,10 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
-- Nothing yet.
+- Support for version 3 docker-compose files.
 
 ### Fixed
 - Removed HTML tags from summaries to prevent broken pages.
+- Removing data from version control to allow persistence in multiple environments.
 
 ## [4.2.0] - 2017-01-24
 ### Added
