@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Support for version 3 docker-compose files.
 - Basic auth for editing/adding content.
+- Editable created at date for posts.
 
 ### Fixed
 - Removed HTML tags from summaries to prevent broken pages.
