@@ -1,6 +1,7 @@
 'use strict';
 let BaseController = require('./BaseController');
 let Post = require('../models/Post');
+let moment = require('moment');
 
 class PostEditController extends BaseController {
 
@@ -9,10 +10,15 @@ class PostEditController extends BaseController {
     if (req.params.id) {
       Post.findOne({"_id": req.params.id}).then((post) => {
         if (post) {
+          // Fix the created at date
+          post.createdAt = moment(post.createdAt).toISOString();
+          post.createdAt = post.createdAt.substring(0, post.createdAt.length-1);
+
           // Convert tags to comma separated string
           post.tags = post.tags.map((tag) => {
             return tag._id;
           }).join(', ');
+
           return res.render('posts/edit', { post: post, title: "Edit Post" });
         } else {
           return next();
@@ -34,9 +40,13 @@ class PostEditController extends BaseController {
   }
 
   postEdit(req, res, next) {
-    // Set updated at to today
     let data = req.body;
+
+    // Set updated at to today
     data.updatedAt = new Date();
+
+    // Set created at
+    data.createdAt = new Date(data.createdAt);
 
     // Get post by id and update
     Post.findOneAndUpdate({"_id": req.params.id}, Post.clean(data)).then((post) => {
