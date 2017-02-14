@@ -6,13 +6,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
-- Support for version 3 docker-compose files.
+- Nothing yet.
+
+## [4.3.0] - 2017-02-13
+### Added
 - Basic auth for editing/adding content.
-- Editable created at date for posts.
 
 ### Fixed
 - Removed HTML tags from summaries to prevent broken pages.
 - Removing data from version control to allow persistence in multiple environments.
+
+### Changed
+- Editable created at date for posts.
+- Support for version 3 docker-compose files.
 
 ## [4.2.0] - 2017-01-24
 ### Added
