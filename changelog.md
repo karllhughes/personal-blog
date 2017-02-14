@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Nothing yet.
 
+### Fixed
+- Attempting to fix intermittent dual connection errors.
+
 ## [4.3.0] - 2017-02-13
 ### Added
 - Basic auth for editing/adding content.

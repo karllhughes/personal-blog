@@ -5,6 +5,7 @@ let router = require('express').Router();
 let connect = require('camo').connect;
 let uri = 'nedb://'+__dirname+'/../../database';
 let Setting = require('../models/Setting');
+let database;
 
 // support url encoded bodies
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -24,9 +25,14 @@ router.use(function (req, res, next) {
 
 // Connect to the DB before future calls
 router.use(function (req, res, next) {
-  connect(uri).then((db) => {
+  if (!database) {
+    connect(uri).then((db) => {
+      database = db;
+      return next();
+    });
+  } else {
     return next();
-  });
+  }
 });
 
 // Add global settings to the response
