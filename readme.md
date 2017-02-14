@@ -59,6 +59,9 @@ When things work, you can build the prod dockerfile and push it out to docker cl
 - Build: `docker build . -t karllhughes/personal-blog:latest`
 - Push: `docker push karllhughes/personal-blog:latest`
 
+#### Importing Data
+The initial data can be imported from the server: `scp -r <USER>@<IP>:/database ./database`
+
 
 ## Local Setup
 Okay, I know Docker's not for everyone, but you can also run this application locally. Here's a rundown of the process:
