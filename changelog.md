@@ -9,7 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Nothing yet.
 
 ### Fixed
-- Attempting to fix intermittent dual connection errors.
+- Nothing yet.
+
+## [4.3.1] - 2017-02-15
+### Fixed
+- Fixed intermittent dual connection errors.
+- Links to articles in RSS feed.
 
 ## [4.3.0] - 2017-02-13
 ### Added

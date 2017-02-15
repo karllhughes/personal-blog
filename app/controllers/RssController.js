@@ -35,7 +35,7 @@ class RssController extends PostsController {
       rss.item({
         title: item.title,
         description: self.filters.parseMarkdown(item.content),
-        url: 'http://blog.khughes.me/posts/' + item._id
+        url: rss.site_url + 'posts/' + item._id
       });
     });
     return rss;
