@@ -8,6 +8,8 @@ services:
       - "./database:/src/database"
       - "./views:/src/views"
       - "./app.js:/src/app.js"
+    environment:
+      - NODE_ENV=development
     entrypoint: npm run serve:dev
     ports:
       - "43000:3000"

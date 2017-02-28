@@ -11,6 +11,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 - Nothing yet.
 
+## [4.4.0] - 2017-02-28
+### Added
+- First blog post on archive page shows image.
+
+### Fixed
+- Analytics code only loads in production environment.
+- Running Node command directly rather than through NPM.
+
 ## [4.3.1] - 2017-02-15
 ### Fixed
 - Fixed intermittent dual connection errors.

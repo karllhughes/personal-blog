@@ -1,6 +1,6 @@
 {
   "name": "personal-blog",
-  "version": "4.1.0",
+  "version": "4.4.0",
   "private": true,
   "scripts": {
     "webpack": "./node_modules/.bin/webpack",

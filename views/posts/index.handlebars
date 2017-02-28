@@ -22,6 +22,12 @@
         </div>
       </div>
 
+      {{#if @first}}
+        {{#if this.imageUrl}}
+          <div class="post-image"><img src="{{ this.imageUrl }}"></div>
+        {{/if}}
+      {{/if}}
+
       <!-- Post Summary -->
       {{#if this.summary}}
         <div>{{{ this.summary }}}</div>

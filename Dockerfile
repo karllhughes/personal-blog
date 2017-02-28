@@ -20,6 +20,8 @@ ADD ./webpack.config.js /src/webpack.config.js
 
 RUN npm run webpack
 
+ENV NODE_ENV production
+
 EXPOSE 3000
 
-CMD npm run serve
+CMD ["node", "bin/www"]
