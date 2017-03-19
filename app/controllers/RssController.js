@@ -34,11 +34,17 @@ class RssController extends PostsController {
     items.map(function (item) {
       rss.item({
         title: item.title,
-        description: self.filters.parseMarkdown(item.content),
+        description: self.getContent(item),
         url: rss.site_url + 'posts/' + item._id
       });
     });
     return rss;
+  }
+
+  getContent(item) {
+    let image = item.imageUrl ? "<img src='"+ item.imageUrl +"' alt='"+ item.title +"'/>" : "";
+    let content = image + "<br/><br/>" + this.filters.parseMarkdown(item.content);
+    return content;
   }
 }
 
