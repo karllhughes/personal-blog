@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [4.5.0] - 2017-03-19
 ### Added
-- Nothing yet.
+- Images to RSS feed.
 
 ### Fixed
 - Going too many pages was now showing 404.
