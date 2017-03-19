@@ -2,6 +2,7 @@
 let bodyParser = require('body-parser');
 let moment = require('moment');
 let router = require('express').Router();
+let querystring = require('querystring');
 let connect = require('camo').connect;
 let uri = 'nedb://'+__dirname+'/../../database';
 let Setting = require('../models/Setting');
@@ -12,13 +13,22 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 // Add pagination links to response
 router.use(function (req, res, next) {
+  // Get the current page
   let currentPage = req.query.page ? parseInt(req.query.page) : 1;
-  let previousPage = currentPage > 1 ? currentPage - 1: null;
-  let nextPage = currentPage + 1;
 
+  // Prev page query object
+  let previousPageQuery = JSON.parse(JSON.stringify(req.query));
+  previousPageQuery.page = currentPage > 1 ? currentPage - 1: null;
+
+  // Next page query object
+  let nextPageQuery = JSON.parse(JSON.stringify(req.query));
+  nextPageQuery.page = currentPage + 1;
+
+  // Set the local vars
   res.locals.pagination = {};
-  res.locals.pagination.nextLink = nextPage ? req.path+"?page="+nextPage : null;
-  res.locals.pagination.previousLink = previousPage ? req.path+"?page="+previousPage : null;
+  res.locals.pagination.currentPage = currentPage;
+  res.locals.pagination.nextLink = nextPageQuery.page ? req.path+"?"+querystring.stringify(nextPageQuery) : null;
+  res.locals.pagination.previousLink = previousPageQuery.page ? req.path+"?"+querystring.stringify(previousPageQuery) : null;
 
   next();
 });

@@ -27,7 +27,7 @@ _Note: older versions of this site were maintained in [another repository](https
 - `app/` The controllers, routes, middleware, database connections, etc. needed for the NodeJS application. This is where the bulk of the work happens.
 - `assets/` Un-built frontend files/scripts.
 - `bin/www` Application boot file. Probably don't need to change this much.
-- `database/*` The DB content is stored in the repo until I get something more permanent set up.
+- `database/*` The DB content is stored here, so it is ignored in version control.
 - `public/*` Built frontend files/scripts.
 - `views/*` Handlebars view templates.
 - `app.js` The Express application starting point.
@@ -62,19 +62,6 @@ When things work, you can build the prod dockerfile and push it out to docker cl
 #### Importing Data
 The initial data can be imported from the server: `scp -r <USER>@<IP>:/database ./database`
 
-
-## Local Setup
-Okay, I know Docker's not for everyone, but you can also run this application locally. Here's a rundown of the process:
-
-### Local Development
-- Clone this repo.
-- At the command line, run `npm install`.
-- Then build the project: `npm run webpack`.
-- Start the nodemon server by running `npm start`.
-
-The blog will be running on your localhost at port 3000.
-
-To listen for changes to the frontend assets, you can open a new terminal window and run `npm run webpack:watch`.
 
 ## License
 Copyright 2017, Karl Hughes

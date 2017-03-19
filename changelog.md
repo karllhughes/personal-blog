@@ -11,6 +11,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 - Nothing yet.
 
+## [4.5.0] - 2017-03-19
+### Added
+- Nothing yet.
+
+### Fixed
+- Going too many pages was now showing 404.
+- Pagination doesn't know when it's on the last page. Fixed with [counting](https://github.com/scottwrobinson/camo#counting).
+- Multi-page doesn't work with search or per-page query string.
+
 ## [4.4.0] - 2017-02-28
 ### Added
 - First blog post on archive page shows image.

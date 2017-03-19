@@ -12,10 +12,18 @@ class PostsController extends BaseController {
     // Options for query
     let options = this.getOptions(req.params, req.query);
 
-    // Carry out the query and call the view render function
-    Post.find(query, options).then(
-      (posts) => this.renderView(posts, req, res, next)
-    );
+    Post.count(query, options).then((postCount) => {
+      // Set the pagination
+      let lastPage = Math.ceil(postCount / this.getLimit(query.per_page));
+      if (res.locals.pagination.currentPage >= lastPage) {
+        res.locals.pagination.nextLink = null;
+      }
+
+      // Get the posts, render the view
+      Post.find(query, options).then(
+        (posts) => this.renderView(posts, req, res, next)
+      );
+    });
   }
 
   getOptions(params, query) {
@@ -38,11 +46,15 @@ class PostsController extends BaseController {
     // Page title
     let title = this.getTitle(req.params, req.query);
 
-    // Clean the posts
-    posts = posts.map((post) => this.cleanPost(post));
+    if (posts && posts.length >= 1) {
+      // Clean the posts
+      posts = posts.map((post) => this.cleanPost(post));
 
-    // Render the view
-    res.render('posts/index', { posts: posts, title: title });
+      // Render the view
+      res.render('posts/index', {posts: posts, title: title});
+    } else {
+      res.status(404).render('posts/404');
+    }
   }
 }
 
