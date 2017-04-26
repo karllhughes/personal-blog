@@ -25,7 +25,20 @@
     <div class="post-image"><img src="{{ post.imageUrl }}"></div>
   {{/if}}
 
-  <div class="post-content" itemprop="articleBody mainEntityOfPage">{{{ post.content }}}</div>
+  <div class="row signup">
+    <div class="column">
+      <p>Like what you see? Sign up for my Weekly Tech Leadership Newsletter:</p>
+      {{> signup }}
+    </div>
+  </div>
+
+  <div class="post-content" itemprop="articleBody mainEntityOfPage">
+    {{#if_string post.type 'blog' }}
+      {{> book-link }}
+    {{/if_string}}
+    {{{ post.content }}}
+  </div>
+
 
   <div class="link-button">
     {{#if_string post.type 'link' }}
@@ -36,10 +49,13 @@
     {{/if_string}}
   </div>
 
-  {{#if_string settings.environment 'development'}}
-    <div>
-      <a href="/posts/{{post._id}}/edit">Edit</a>
+  {{#if_string post.type 'blog' }}
+  <div class="row signup">
+    <div class="column">
+      <p>Sign up to get the best Tech Leadership blog posts delivered to your inbox every week:</p>
+      {{> signup }}
     </div>
+  </div>
   {{/if_string}}
 
 </article>
