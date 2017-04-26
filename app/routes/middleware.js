@@ -6,6 +6,7 @@ let querystring = require('querystring');
 let connect = require('camo').connect;
 let uri = 'nedb://'+__dirname+'/../../database';
 let Setting = require('../models/Setting');
+let https = require('https');
 let database;
 
 // support url encoded bodies
@@ -60,6 +61,32 @@ router.use(function (req, res, next) {
     });
     return next();
   });
+});
+
+// Add bookHtml to the globals via Trello api
+router.use(function (req, res, next) {
+
+  if (res.locals.settings['trelloKey']) {
+    // Get trello card from the API
+    return https.get({
+      host: 'api.trello.com',
+      path: '/1/lists/5471457e0675316091020bcb/cards?key=' + res.locals.settings['trelloKey']
+    }, function (response) {
+
+      // Continuously update a stream with data
+      let body = '';
+      response.on('data', (d) => {
+        body += d;
+      })
+        .on('end', function () {
+          // Update a global when finished
+          res.locals.settings['bookHtml'] = JSON.parse(body)[0].desc;
+          return next();
+        });
+    });
+  } else {
+    return next();
+  }
 });
 
 router.use(function (req, res, next) {

@@ -34,7 +34,9 @@
 
   <div class="post-content" itemprop="articleBody mainEntityOfPage">
     {{#if_string post.type 'blog' }}
-      {{> book-link }}
+      {{#if settings.bookHtml }}
+        {{> book-link }}
+      {{/if}}
     {{/if_string}}
     {{{ post.content }}}
   </div>
