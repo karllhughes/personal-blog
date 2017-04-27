@@ -6,8 +6,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+- Nothing yet.
+
+### Fixed
+- Nothing yet.
+
+## [4.6.0] - 2017-04-26
+### Added
 - Email signup form to before and after blog posts.
 - Amazon link to book currently being read on Trello.
+- Related posts under each post.
 
 ### Fixed
 - Nothing yet.
