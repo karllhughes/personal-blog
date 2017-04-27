@@ -12,12 +12,26 @@ class PostController extends BaseController {
         // Cleanup the post
         post = self.cleanPost(post);
 
-        // Set up the post meta variables
-        res.locals.description = post.summary ? post.summary : res.locals.description;
-        res.locals.imageUrl = post.imageUrl ? post.imageUrl : res.locals.imageUrl;
+        Post.find(
+          {
+            tags: { $in: post.tags },
+            _id: { $ne: post._id },
+            imageUrl: { $ne: '' }
+          },
+          {
+            limit: 3,
+            sort: '-createdAt'
+          }).then((relatedPosts) => {
+          // Attach related posts
+          post.relatedPosts = relatedPosts;
 
-        // Render the page
-        return res.render('posts/single', {post: post, title: post.title});
+          // Set up the post meta variables
+          res.locals.description = post.summary ? post.summary : res.locals.description;
+          res.locals.imageUrl = post.imageUrl ? post.imageUrl : res.locals.imageUrl;
+
+          // Render the page
+          return res.render('posts/single', { post: post, title: post.title });
+        });
       } else {
         // Or 404 if none found
         return next();

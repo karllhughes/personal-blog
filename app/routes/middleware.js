@@ -65,7 +65,6 @@ router.use(function (req, res, next) {
 
 // Add bookHtml to the globals via Trello api
 router.use(function (req, res, next) {
-
   if (res.locals.settings['trelloKey']) {
     // Get trello card from the API
     return https.get({
@@ -77,8 +76,7 @@ router.use(function (req, res, next) {
       let body = '';
       response.on('data', (d) => {
         body += d;
-      })
-        .on('end', function () {
+      }).on('end', function () {
           // Update a global when finished
           res.locals.settings['bookHtml'] = JSON.parse(body)[0].desc;
           return next();

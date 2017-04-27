@@ -42,14 +42,15 @@
   </div>
 
 
-  <div class="link-button">
-    {{#if_string post.type 'link' }}
+  {{#if_string post.type 'link' }}
+  <div class="row link-button">
+    <div class="column">
       <a href="{{ post.postUrl }}" class="button">
-        <i class="icons icon-book-open"></i>
-        Read More
+        <i class="icons icon-book-open"></i> Read More
       </a>
-    {{/if_string}}
+    </div>
   </div>
+  {{/if_string}}
 
   {{#if_string post.type 'blog' }}
   <div class="row signup">
@@ -59,5 +60,17 @@
     </div>
   </div>
   {{/if_string}}
+
+  {{#if post.relatedPosts}}
+  <h4>Similar Posts</h4>
+  <div class="row">
+    {{#each post.relatedPosts}}
+      <div class="column">
+        <a href="/posts/{{this._id}}">{{this.title}}</a>
+        <a href="/posts/{{this._id}}"><img src="{{ this.imageUrl }}" alt="{{this.title}}"/></a>
+      </div>
+    {{/each}}
+  </div>
+  {{/if}}
 
 </article>
