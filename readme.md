@@ -37,15 +37,22 @@ _Note: older versions of this site were maintained in [another repository](https
 ## Docker Setup
 Don't install everything locally; containers are way cooler.
 
+### Requirements
+
+- Docker should be installed and running.
+- Node v.6+ and NPM v.4+ should be installed.
+
 ### Development
 
-- Make sure Docker is running on your computer.
 - Run `npm run app:local:build` to build the Dockerfile.
 - Run `npm run app:local:up` to get the app running.
 - The site is served at `localhost:43000` and should be watching for changes to both the Node and frontend files.
 
 ### Production
-Coming soon.
+
+- Run `npm run app:prod:build` to build the Dockerfile.
+- Run `npm run app:prod:up` to get the app running.
+- The site is served on port 80 at the server's address.
 
 #### Pushing Updates
 Coming soon.
