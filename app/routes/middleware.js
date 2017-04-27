@@ -4,7 +4,7 @@ let moment = require('moment');
 let router = require('express').Router();
 let querystring = require('querystring');
 let connect = require('camo').connect;
-let uri = 'nedb://'+__dirname+'/../../database';
+let uri = 'nedb://'+__dirname+'/../../.data';
 let Setting = require('../models/Setting');
 let https = require('https');
 let database;

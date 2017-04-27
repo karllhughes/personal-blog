@@ -1,0 +1,15 @@
+version: "2.1"
+services:
+  web:
+    build: ../
+    volumes:
+      - "../.data:/src/.data"
+      - "../app:/src/app"
+      - "../app.js:/src/app.js"
+      - "../assets:/src/assets"
+      - "../views:/src/views"
+    environment:
+      - NODE_ENV=development
+    ports:
+      - 43000:3000
+    command: bash docker/start.local.sh
