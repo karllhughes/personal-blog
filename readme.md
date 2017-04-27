@@ -57,11 +57,8 @@ Don't install everything locally; containers are way cooler.
 To update the code in production, ssh into the server and run `npm run -s app:prod:update`. This can be simplified to a single command if you've got the ssh keys in place:
 
 ```bash
-npm run -s app:prod:deploy
+npm run app:prod:deploy
 ```
-
-#### Pushing Updates
-Coming soon.
 
 #### Importing Data
 The initial data can be imported from the server: `scp -r <USER>@<IP>:/.data ./.data`
