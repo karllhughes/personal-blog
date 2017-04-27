@@ -1,8 +1,0 @@
-version: "3"
-services:
-  web:
-    build: .
-    volumes:
-      - "./database:/src/database"
-    ports:
-      - "43000:3000"

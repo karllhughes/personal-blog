@@ -8,8 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Nothing yet.
 
-### Fixed
-- Nothing yet.
+### Changed
+- Updating Docker scripts to adhere to [Shiphp Spec](https://github.com/shiphp/spec).
 
 ## [4.6.0] - 2017-04-26
 ### Added

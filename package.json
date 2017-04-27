@@ -1,13 +1,16 @@
 {
   "name": "personal-blog",
-  "version": "4.4.0",
+  "version": "4.6.0",
   "private": true,
   "scripts": {
-    "webpack": "./node_modules/.bin/webpack",
-    "webpack:watch": "./node_modules/.bin/webpack --watch",
-    "start": "npm run serve",
-    "serve": "NODE_ENV=production node bin/www",
-    "serve:dev": "./node_modules/.bin/nodemon -L bin/www & npm run webpack:watch"
+    "app:local:build": "docker-compose -f docker/compose.local.yml build",
+    "app:local:up": "docker-compose -f docker/compose.local.yml up -d",
+    "app:local:down": "docker-compose -f docker/compose.local.yml down",
+    "app:local:restart": "docker-compose -f docker/compose.local.yml up -d --force-recreate",
+    "app:prod:build": "docker-compose -f docker/compose.prod.yml build",
+    "app:prod:up": "docker-compose -f docker/compose.prod.yml up -d",
+    "app:prod:down": "docker-compose -f docker/compose.prod.yml down",
+    "app:prod:restart": "docker-compose -f docker/compose.prod.yml up -d --force-recreate"
   },
   "engines": {
     "node": "6.7.0"
@@ -29,6 +32,7 @@
   },
   "devDependencies": {
     "css-loader": "^0.26.1",
+    "file-loader": "^0.11.1",
     "image-webpack-loader": "^3.1.0",
     "milligram": "^1.2.4",
     "node-sass": "^4.3.0",
