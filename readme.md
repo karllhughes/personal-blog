@@ -54,6 +54,12 @@ Don't install everything locally; containers are way cooler.
 - Run `npm run app:prod:up` to get the app running.
 - The site is served on port 80 at the server's address.
 
+To update the code in production, ssh into the server and run `npm run -s app:prod:update`. This can be simplified to a single command if you've got the ssh keys in place:
+
+```bash
+npm run -s app:prod:deploy
+```
+
 #### Pushing Updates
 Coming soon.
 
