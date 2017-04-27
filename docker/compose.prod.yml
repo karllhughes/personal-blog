@@ -5,4 +5,4 @@ services:
     volumes:
       - "../.data:/src/.data"
     ports:
-      - 43000:3000
+      - 80:3000
