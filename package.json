@@ -11,7 +11,7 @@
     "app:prod:up": "docker-compose -f docker/compose.prod.yml up -d",
     "app:prod:down": "docker-compose -f docker/compose.prod.yml down",
     "app:prod:restart": "docker-compose -f docker/compose.prod.yml up -d --force-recreate",
-    "app:prod:deploy": "ssh root@104.131.53.171 'cd personal-blog && npm run -s app:prod:update'",
+    "app:prod:deploy": "docker run --env-file docker/.env shiphp/simple-ssh",
     "app:prod:update": "git pull origin master && npm run -s app:prod:restart"
   },
   "engines": {
