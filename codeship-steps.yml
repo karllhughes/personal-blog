@@ -1,0 +1,6 @@
+- type: serial
+  steps:
+  - service: web
+    command: echo "Built"
+  - service: deployer
+    command: sh execute.sh
