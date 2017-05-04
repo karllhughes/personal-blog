@@ -60,8 +60,18 @@ To update the code in production, ssh into the server and run `npm run -s app:pr
 npm run app:prod:deploy
 ```
 
-#### Importing Data
-The initial data can be imported from the server: `scp -r <USER>@<IP>:/.data ./.data`
+### Hyper.sh
+
+First time setup/data migration:
+
+- Create a data volume from local folder: `hyper run -v $(pwd)/.data:/src/.data --name dataup ubuntu echo "Data volume created"`.
+- Create a snapshot of that volume: `hyper snapshot create --volume VOLUME_ID --name personalblog`
+- Create a named volume: `hyper volume create --snapshot=personalblog --name=personalblog`
+- Remove the dataup container: `hyper rm -v dataup`
+
+Subsequent use:
+
+- Bring up the container: `hyper compose up -d -f docker/compose.hyper.yml -p personal_blog_$RANDOM`
 
 
 ## License

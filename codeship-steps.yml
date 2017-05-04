@@ -1,6 +1,7 @@
 - type: serial
   steps:
   - service: web
-    command: echo "Built"
+    command: echo "Container Built"
   - service: deployer
-    command: sh execute.sh
+    command: ./docker/deploy.hyper.sh
+    tag: master

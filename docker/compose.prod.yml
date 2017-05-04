@@ -1,9 +1,0 @@
-version: "2.1"
-services:
-  web:
-    build: ../
-    restart: always
-    volumes:
-      - "../.data:/src/.data"
-    ports:
-      - 80:3000
