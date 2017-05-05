@@ -4,4 +4,6 @@ web:
     dockerfile: Dockerfile
 deployer:
   image: chickenzord/hyper
+  volumes:
+    - docker:/docker
   encrypted_env_file: docker/deployer/.env.encrypted
