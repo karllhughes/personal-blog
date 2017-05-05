@@ -5,7 +5,9 @@ services:
     size: s4
     restart: always
     volumes:
-      - personalblog:/src/.data
+    #  - personalblog:/src/.data
+      - personalblog2:/src/.data
     ports:
       - 80:3000
-    fip: 199.245.57.182
+    # fip: 199.245.57.182
+    fip: 199.245.57.241
