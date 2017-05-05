@@ -1,7 +1,10 @@
 - type: serial
   steps:
   - service: web
-    command: echo "Container Built"
+    type: push
+    image_name: karllhughes/personal-blog
+    registry: https://index.docker.io/v1/
+    encrypted_dockercfg_path: docker/config.encrypted
   - service: deployer
-    command: ./docker/deploy.hyper.sh
+    command: sh /docker/deploy.hyper.sh
     tag: master

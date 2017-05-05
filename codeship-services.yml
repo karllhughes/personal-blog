@@ -1,6 +1,7 @@
 web:
   build:
-    dockerfile_path: Dockerfile
+    image: karllhughes/personal-blog
+    dockerfile: Dockerfile
 deployer:
   image: chickenzord/hyper
   encrypted_env_file: docker/deployer/.env.encrypted
