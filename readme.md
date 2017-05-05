@@ -24,14 +24,13 @@ _Note: older versions of this site were maintained in [another repository](https
 - [Docker and Docker-Compose](https://docs.docker.com/compose/)
 
 ### Structure
+- `.data/*` The DB content is stored here, so it is ignored in version control.
 - `app/` The controllers, routes, middleware, database connections, etc. needed for the NodeJS application. This is where the bulk of the work happens.
 - `assets/` Un-built frontend files/scripts.
 - `bin/www` Application boot file. Probably don't need to change this much.
-- `database/*` The DB content is stored here, so it is ignored in version control.
+- `docker/` Docker Compose files and shell scripts.
 - `public/*` Built frontend files/scripts.
 - `views/*` Handlebars view templates.
-- `app.js` The Express application starting point.
-- `entry.js` The Webpack entry script.
 
 
 ## Docker Setup
@@ -42,29 +41,24 @@ Don't install everything locally; containers are way cooler.
 - Docker should be installed and running.
 - Node v.6+ and NPM v.4+ should be installed.
 
-### Development
+### Local Development
 
 - Run `npm run app:local:build` to build the Dockerfile.
 - Run `npm run app:local:up` to get the app running.
 - The site is served at `localhost:43000` and should be watching for changes to both the Node and frontend files.
 
 ### Production
+Currently running containers on [Hyper.sh](https://hyper.sh/).
 
-- Run `npm run app:prod:build` to build the Dockerfile.
-- Run `npm run app:prod:up` to get the app running.
-- The site is served on port 80 at the server's address.
-
-To update the code in production, ssh into the server and run `npm run -s app:prod:update`. This can be simplified to a single command if you've got the ssh keys in place:
+Updating production code:
 
 ```bash
 npm run app:prod:deploy
 ```
 
-#### Importing Data
-The initial data can be imported from the server: `scp -r <USER>@<IP>:/.data ./.data`
-
 
 ## License
+
 Copyright 2017, Karl Hughes
 
 >   Licensed under the Apache License, Version 2.0 (the "License");
