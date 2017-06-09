@@ -1,4 +1,4 @@
-version: "2.1"
+version: "2"
 services:
   web:
     build: ../
@@ -8,6 +8,7 @@ services:
       - "../app.js:/src/app.js"
       - "../assets:/src/assets"
       - "../views:/src/views"
+      - "../docker:/src/docker"
     environment:
       - NODE_ENV=development
     ports:
