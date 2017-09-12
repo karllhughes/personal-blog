@@ -1,8 +1,8 @@
 <footer class="container footer">
   <div class="row">
-    {{#if settings.menu}}
+    {{#if settings.footer_menu}}
     <nav class="column">
-      {{#each settings.menu}}
+      {{#each settings.footer_menu}}
         <a href="{{this.url}}">{{this.name}}</a>{{#unless @last}} |{{/unless}}
       {{/each}}
     </nav>

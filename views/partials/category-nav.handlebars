@@ -1,0 +1,11 @@
+<div class="row category-nav">
+  <div class="column">
+    {{#if settings.header_menu}}
+    <ul role="menu">
+      {{#each settings.header_menu}}
+      <li><a href="{{this.url}}">{{this.name}}</a>{{#unless @last}} |{{/unless}}</li>
+      {{/each}}
+    </ul>
+    {{/if}}
+  </div>
+</div>

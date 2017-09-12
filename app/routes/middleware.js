@@ -63,35 +63,6 @@ router.use(function (req, res, next) {
   });
 });
 
-// Add bookHtml to the globals via Trello api
-router.use(function (req, res, next) {
-  if (res.locals.settings['trelloKey']) {
-    try {
-      // Get trello card from the API
-      return https.get({
-        host: 'api.trello.com',
-        path: '/1/lists/5471457e0675316091020bcb/cards?key=' + res.locals.settings['trelloKey']
-      }, function (response) {
-
-        // Continuously update a stream with data
-        let body = '';
-        response.on('data', (d) => {
-          body += d;
-        }).on('end', function () {
-          // Update a global when finished
-          res.locals.settings['bookHtml'] = JSON.parse(body)[0].desc;
-          return next();
-        });
-      });
-    } catch (e) {
-      console.log(e);
-      return next();
-    }
-  } else {
-    return next();
-  }
-});
-
 router.use(function (req, res, next) {
   // Default description, image, url
   res.locals.description = res.locals.settings.siteDescription;

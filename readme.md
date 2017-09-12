@@ -56,6 +56,17 @@ Updating production code:
 npm run app:prod:deploy
 ```
 
+### Notes
+
+To get data from production, I use Hyper's CLI:
+
+- Make snapshot `hyper snapshot create -v personalblog -f --name personal-blog-backup-1`
+- Create a volume `hyper volume create --snapshot personal-blog-backup-1 --name personal-blog-backup-1`
+- View posts in command line `hyper run --name personal-blog-backup --rm -v personal-blog-backup-1:/src/.data alpine tail -n +1 src/.data/posts.db`
+- View settings in command line `hyper run --name personal-blog-backup --rm -v personal-blog-backup-1:/src/.data alpine tail -n +1 src/.data/settings.db`
+
+Then I just copy the json into my local `.db` files.
+
 
 ## License
 

@@ -6,7 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
-- Nothing yet.
+- New categories: speaking, projects.
+- Navbar at top as well as bottom of site.
 
 ### Changed
 - Updating Docker scripts to adhere to [Shiphp Spec](https://github.com/shiphp/spec).

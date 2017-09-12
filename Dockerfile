@@ -1,5 +1,5 @@
 # Prod Dockerfile
-FROM node:6
+FROM node:8
 
 # Create base directory
 RUN mkdir /src

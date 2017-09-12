@@ -4,7 +4,7 @@ let moment = require('moment');
 let striptags = require('striptags');
 
 const startingPage = 1;
-const perPage = 20;
+const perPage = 10;
 
 class BaseController {
   constructor() {

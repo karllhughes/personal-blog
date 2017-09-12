@@ -33,11 +33,6 @@
   </div>
 
   <div class="post-content" itemprop="articleBody mainEntityOfPage">
-    {{#if_string post.type 'blog' }}
-      {{#if settings.bookHtml }}
-        {{> book-link }}
-      {{/if}}
-    {{/if_string}}
     {{{ post.content }}}
   </div>
 
@@ -56,6 +51,15 @@
   <div class="row signup">
     <div class="column">
       <p>Sign up to get the best Tech Leadership blog posts delivered to your inbox every week:</p>
+      {{> signup }}
+    </div>
+  </div>
+  {{/if_string}}
+
+  {{#if_string post.type 'project' }}
+  <div class="row signup">
+    <div class="column">
+      <p>Get interesting new projects sent to your inbox with the Tech Leadership newsletter:</p>
       {{> signup }}
     </div>
   </div>

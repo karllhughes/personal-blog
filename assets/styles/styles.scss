@@ -31,6 +31,21 @@ p a {
     }
   }
 }
+.category-nav .column {
+  ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    border-bottom: none;
+    display: inline-block;
+  }
+  ul li a:hover {
+    text-decoration: underline;
+  }
+}
 .main {
   max-width: 850px;
   margin: 0 auto;
