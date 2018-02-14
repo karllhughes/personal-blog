@@ -1,5 +1,6 @@
 'use strict';
 let router = require('express').Router();
+let JsonController = require('../controllers/JsonController');
 let PostController = require('../controllers/PostController');
 let PostEditController = require('../controllers/PostEditController');
 let PostsController = require('../controllers/PostsController');
@@ -60,6 +61,10 @@ router.get('/tags/:tag', function(req, res, next) {
 /* GET rss feed of posts. */
 router.get('/rss', function(req, res, next) {
   (new RssController).get(req, res, next);
+});
+/* GET all posts as json */
+router.get('/json', auth.connect(basic), function(req, res, next) {
+  (new JsonController).get(req, res, next);
 });
 /* GET robots.txt file */
 router.get('/robots.txt', function (req, res) {
