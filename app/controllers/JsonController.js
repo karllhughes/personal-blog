@@ -7,7 +7,7 @@ class PostEditController extends BaseController {
     const fileContents = fs.readFileSync('./.data/posts.db');
 
     // Return a response
-    res.set("Content-Type", "application/json; charset=utf-8");
+    res.set("Content-Type", "text; charset=utf-8");
     res.send(fileContents);
   }
 }
