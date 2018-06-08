@@ -2,7 +2,7 @@
 
 <div class="row posts">
   <div class="column">
-  {{#each posts}}
+    {{#each posts}}
     <div class="post" itemscope itemtype="http://schema.org/Article">
       <!-- Post Title -->
       <h2>
@@ -23,19 +23,30 @@
       </div>
 
       {{#if @first}}
-        {{#if this.imageUrl}}
-          <div class="post-image">
-            <a itemprop="url" href="/posts/{{this._id}}"><img src="{{ this.imageUrl }}"></a>
-          </div>
-        {{/if}}
+      {{#if this.imageUrl}}
+      <div class="post-image">
+        <a itemprop="url" href="/posts/{{this._id}}"><img src="{{ this.imageUrl }}"></a>
+      </div>
+      {{/if}}
       {{/if}}
 
       <!-- Post Summary -->
       {{#if this.summary}}
-        <div>{{{ this.summary }}}</div>
+      <div>{{{ this.summary }}}</div>
       {{/if }}
     </div>
-  {{/each}}
+
+    {{#if @first}}
+    <div class="post" style="border: 1px solid #333;">
+      <div class="row signup">
+        <div class="column">
+          <p>Like what you see? Sign up for my weekly newsletter:</p>
+          {{> signup }}
+        </div>
+      </div>
+    </div>
+    {{/if}}
+    {{/each}}
   </div>
 </div>
 
